@@ -1,0 +1,66 @@
+@import 'global';
+
+h1{
+    @extend %text
+}
+
+.components_ctn{
+    @extend %windowCenterBox;
+    height: calc(100vh - 7em);
+    background-color: $black;
+    color: $white;
+    box-shadow: $boxPadding $boxPadding rgba(221, 221, 221, .5);
+    .sub_nav{
+        position: absolute;
+        top: $boxPadding;
+        right: $boxPadding;
+
+    }
+}
+
+.box{
+    box-sizing: border-box;
+    width: 96%;
+    height: calc(100% - 5em);
+    margin: $boxPadding auto;
+    background-color: darken($black, 2);
+    box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
+    // border: 3px solid lighten($black, 10);
+    >div{
+        @extend %container;
+    }
+}
+
+a.workLink{
+    @extend %link;
+    color: $white;
+    display: inline-block;
+    margin: 0 .5em;
+    span{
+        position: absolute;
+        width: 100%;
+        top: -0.75em;
+        left: 0;
+        font-size: .5em;
+        text-align: center;
+        color: darken($white, 50);
+    }
+    &:after{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $skin;
+        transition: 250ms ease-out;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: scalex(0);
+        transform: scalex(0);
+    }
+    &.router-link-active:after{
+        -webkit-transform: scalex(1);
+        transform: scalex(1);
+    }
+}

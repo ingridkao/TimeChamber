@@ -1,0 +1,55 @@
+// $primary: $color-pink;
+$white: #fff;
+$black: #363636;
+$skin:#fee4dd;
+$blue:#7780cf;
+
+$boxPadding:1em;
+
+%container {
+    position: relative;
+    width: 100%;
+}
+
+%link {
+    position: relative;
+    text-decoration: none;
+    padding: .25em .5em;
+}
+
+%text {
+    margin: 0;
+}
+
+%windowCenterBox {
+    box-sizing: border-box;
+    position: relative;
+    width: 82%;
+    max-width: 50em;
+    margin: 0 auto;
+    padding: $boxPadding;
+}
+
+%btn{
+    font-size: .75em;
+    border-radius: .1em;
+    padding: .5em 1em;
+    text-align: left;
+    box-shadow: 3px 3px 6px rgba(#000, 0.5);
+}
+
+%btnRadius{
+    font-size: .75em;
+    border-radius: 1em;
+    padding: .25em 1em;
+}
+// @mixin label($text: 'Code', $background: $yellow, $color: rgba(black, 0.5)) {
+//     position: relative;
+//     &:before {
+//       background: $background;
+//       color: $color;
+//       content: $text;
+//       display: inline-block;
+//       font-size: .6rem;
+//     }
+// }

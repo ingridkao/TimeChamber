@@ -1,7 +1,18 @@
 <template>
 	<div id="app">
-		<h1>{{ msg }}</h1>
-		<route-compunent></route-compunent>
+		<header class="homeHeader">
+			<div class="logo"></div>
+			<div class="main_nav">
+				<route-compunent></route-compunent>
+			</div>
+			<!-- <div class="menu"></div> -->
+			<div class="btnGroup langGroup rightSlide">
+				<button>En</button>
+				|
+				<button class="active">ZhTw</button>
+			</div>
+		</header>
+
 		<router-view></router-view>
 	</div>
 </template>
@@ -12,7 +23,6 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   components:{
@@ -20,3 +30,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+	@import "scss/init.scss";
+</style>

@@ -1,0 +1,122 @@
+@import 'global';
+@import 'init';
+
+.dataPicker{
+    height: 6em;
+    background: darken($black, 5);
+}
+.content{
+    @extend %container;
+    box-sizing: border-box;
+    // height: calc(100% - 3em);
+    padding: $boxPadding;
+    > div{
+        display: inline-block;
+        vertical-align: top;
+        width: 49%;
+        font-size: 1em;
+    }
+    .leftSlide{
+        h6{
+            font-size: 1em;
+            margin-bottom: 1em;
+        }
+        .inputBox{
+            position: absolute;
+            box-sizing: border-box;
+            background: darken($white, 1);
+            width: 80%;
+            padding: .5em;
+            box-sizing: border-box;
+            text-align: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: 250ms ease-out;
+            &.open{
+                visibility: visible;
+                opacity: 1; 
+            }
+            input{
+                width: 80%;
+                height: 1em;
+                border-radius: 2em;
+                margin: .5em auto;
+                color: $blue;
+            }
+        }
+        .chartBox{
+            width: 12em;
+            height: 12em;
+            background: darken($white, 10);
+            border-radius: 50%;
+            margin: 15% auto auto 10%;
+        }
+    }
+}
+
+.actionGroup button{
+    @extend %btnRadius;
+    background: darken($black, 7);
+    color: darken($skin, 10);
+    &:hover{
+        color: darken($skin, 5);
+    }
+}
+
+.todoGroup{
+    padding: 1em;
+    li{
+        display: block;
+        position: relative;
+        padding-left: 2em;
+        &.nodata{
+            color: rgba(#ddd, 0.25); 
+        }
+        button{
+            position: absolute;
+            left: 0;
+            font-size: 2em;
+            color: rgba(#ddd, 0.25);
+        }
+    }
+}
+
+.btn.addTodo{
+    position: relative;
+    width: 80%;
+    border: 2px solid $blue;
+    color:$blue;
+    font-weight: bold;
+    &:after{
+        content: '-';
+        position: absolute;
+        color: $blue;
+        font-size: 1.75em;
+        z-index: 5;
+        top: 0;
+        right: .5em;
+    }
+    &.open{
+        color:$skin;
+        border-color: $skin;
+        &:after{
+            content: '+';
+            color:$skin;
+        }
+    }
+}
+
+.createTodo{
+    @extend %btnRadius;
+    background-color: lighten($blue, 10);
+    color: $white;
+    margin: .5em;
+    &:hover{
+        background-color: $blue;
+    }
+    &:disabled{
+        background-color: #ddd;
+        cursor: not-allowed;
+    }
+
+}

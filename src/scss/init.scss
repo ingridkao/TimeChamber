@@ -1,0 +1,110 @@
+@charset "UTF-8";
+@import 'global';
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    position: relative;
+}
+
+button{
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input{
+    outline: none;
+    border: none;
+    padding: .5em 1em;
+    font-size: .8em;
+}
+a.typeLink{
+    @extend %link;
+    color: $white;
+    display: block;
+    margin: 0 .5em;
+    border: 3px solid $white;
+    text-transform:uppercase;
+    font-weight: bold;
+    font-size: .8em;
+    &:hover{
+        text-shadow: 3px 3px #ddd;
+        box-shadow: .5em .5em rgba(#ddd, 0.5);
+    }
+}
+
+li{
+    display: inline-block;
+}
+
+#app{
+    @extend %container;
+    height: 100vh;
+    font-family: Rubik, "Microsoft JhengHei",OpenSans,Helvetica,sans-serif;
+    font-size: 22px;
+    color: $black;
+    background-color: $skin;
+}
+
+.leftSlide{
+    position: absolute;
+    left: $boxPadding;
+}
+.rightSlide{
+    position: absolute;
+    right: $boxPadding;
+}
+.vertical_center{
+    box-sizing: border-box;
+    height: 75%;
+    padding-top: 25%;
+}
+.center{
+    text-align: center;
+}
+.homeHeader{
+    padding: $boxPadding;
+    >div{
+        display: inline-block;
+        vertical-align: middle;
+        &.logo{
+            width: $boxPadding * 3;
+            height: $boxPadding * 3;
+            background-color: $black;
+        }
+        &.main_nav{
+            margin: 0 $boxPadding;
+        }
+    }
+}
+
+.btnGroup{
+    font-size: 1em;
+    font-weight: bold;
+    >button{
+        display: inline-block;
+        font-size: 1em;
+        padding: .5em;
+        font-weight: bold;
+    }
+    &.langGroup button.active{
+        text-decoration:line-through;
+    } 
+}
+
+.actionGroup{
+    @extend %container;
+    .rightGroup{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.btn{
+    @extend %btn;
+}
