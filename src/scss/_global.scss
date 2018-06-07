@@ -2,7 +2,7 @@
 $white: #fff;
 $black: #363636;
 $skin:#fee4dd;
-$blue:#7780cf;
+$blue:#5761bb;
 
 $boxPadding:1em;
 
@@ -40,8 +40,8 @@ $boxPadding:1em;
 
 %btnRadius{
     font-size: .75em;
-    border-radius: 1em;
-    padding: .25em 1em;
+    border-radius: 1.5em;
+    padding: .5em 1.25em;
 }
 // @mixin label($text: 'Code', $background: $yellow, $color: rgba(black, 0.5)) {
 //     position: relative;
