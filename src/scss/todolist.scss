@@ -26,31 +26,6 @@ $chartSize: 11em;
             font-size: 1em;
             margin-bottom: 1em;
         }
-        .inputBox{
-            position: absolute;
-            z-index: 10;
-            box-sizing: border-box;
-            background: darken($white, 1);
-            width: 80%;
-            padding: .5em;
-            box-sizing: border-box;
-            text-align: center;
-            visibility: hidden;
-            opacity: 0;
-            box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 5);
-            transition: 250ms ease-out;
-            &.open{
-                visibility: visible;
-                opacity: 1; 
-            }
-            input{
-                width: 80%;
-                height: 1em;
-                border-radius: 2em;
-                margin: .5em auto;
-                color: $blue;
-            }
-        }
         .chartBox{
             position: relative;
             width: $chartSize;
@@ -130,6 +105,44 @@ $chartSize: 11em;
     }
 }
 
+.inputBox{
+    position: absolute;
+    z-index: 10;
+    box-sizing: border-box;
+    background: darken($white, 1);
+    width: 80%;
+    padding: .5em;
+    box-sizing: border-box;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 5);
+    transition: all 250ms cubic-bezier(0.570, 0.660, 0.685, 0.105);
+    &.open{
+        visibility: visible;
+        opacity: 1; 
+    }
+    input{
+        width: 80%;
+        height: 1em;
+        border-radius: 2em;
+        margin: .5em auto;
+        color: $blue;
+    }
+    footer{
+        width: 100%;
+        height: 2em;
+        > button{
+            height: 100%;
+            font-size: 0.8em;
+            color: lighten($blue, 5);
+            &:hover{
+                color: lighten($blue, 10);
+            }
+        }
+    }
+}
+
 .actionGroup button{
     @extend %btnRadius;
     background: darken($black, 7);
@@ -139,47 +152,76 @@ $chartSize: 11em;
     }
 }
 
+.optionGroup{
+    text-align: left;
+    padding: .25em 1em;
+    button{
+        font-size: .8em;
+    }
+}
+
 .todoGroup{
     box-sizing: border-box;
     margin: 1em 0;
-    padding: 0.5em 1.5em;
+    padding: 0.5em;
     max-height: 45vh;
     li{
+        display: block;
+        border-top: 1px dotted lighten($black, 5);
+        overflow: hidden;
         &.nodata{
             color: rgba($white, 0.25); 
         }
         > div{
             position: relative;
-            padding: .5em 1em;
-            > div{
-                position: relative;
-                width: calc(100% - 1em);
-            }
-        }
-        button{
-            position: absolute;
-            top: 0;
-            color: rgba($white, 0.25);
-            font-size: 1em;
-            height: 100%;
-            &.checkbox{
-                left: -1em;
-                transition: 250ms ease-out;
-                &.check{
-                    color: $skin;
-                    transform: scale(1.2);
+            box-sizing: border-box;
+            width: 100%;
+            &.dataBox{
+                padding: .5em 0 0 2em;
+                background-color: darken($black, 2);
+                z-index: 1;
+                button{
+                    position: absolute;
+                    top: 0;
+                    color: rgba($white, 0.25);
+                    font-size: 1em;
+                    height: 100%;
+                    &:nth-child(1){
+                        left: .5em;
+                        transition: 250ms ease-out;
+                        &.check{
+                            color: $skin;
+                            transform: scale(1.2);
+                        }
+                    }
+                    // &:nth-child(3){
+                    //     right: 3.75em;
+                    // }
+                    &:nth-child(3){
+                        right: 2em;
+                    }
+                    &:nth-child(4){
+                        right: 0.5em;
+                    }
                 }
             }
-            &.priority{
-                right: 3.5em;
-            }
-            &.delete{
-                right: 2em;
-            }
-            &.edit{
-                right: 0;
+            &.collapse{
+                text-align: center;
+                background-color: darken($black, 3);
+                margin-top: -45%;
+                opacity: 0;
+                z-index: 0;
+                &.show {
+                    margin-top: 0;
+                    opacity: 1;
+                    visibility: visible;
+                }
+                >input{
+
+                }
             }
         }
+
     }
 }
 
@@ -220,5 +262,4 @@ $chartSize: 11em;
         background-color: #ddd;
         cursor: not-allowed;
     }
-
 }

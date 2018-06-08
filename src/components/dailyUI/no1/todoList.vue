@@ -15,13 +15,13 @@
                     <input
                         type="text"
                         placeholder="Title"
-                        v-model.trim="todoTitle"/>
+                        v-model.trim="todoData.title"/>
                     <input
                         type="text"
-                        placeholder="Somethings..."
-                        v-model.trim="todoContent"
+                        placeholder="Type your memo here ..."
+                        v-model.trim="todoData.content"
                         @keyup.enter="actionAddTodo"/>
-                    <button class="createTodo" @click="actionAddTodo" :disabled="todoTitle == ''">Add Task</button>
+                    <button class="createTodo" @click="actionAddTodo" :disabled="todoData.title == ''">Add Task</button>
                 </div>
 
                 <div class="chartBox">
@@ -37,11 +37,11 @@
                     </div>
                     <div class="circleScreen" @click="toggleChart.toggle = !toggleChart.toggle">
                         <div class="complete" :class="{ active: toggleChart.toggle }">
-                            <h4>{{completeRatio}}%</h4>
+                            <h4>{{ completeRatio }}%</h4>
                             <p>Completed</p>
                         </div>
                         <div class="uncompleted" :class="{ active: !toggleChart.toggle }">
-                            <h4>{{uncompleteRatio}}%</h4>
+                            <h4>{{ uncompleteRatio }}%</h4>
                             <p>Uncompleted</p>
                         </div>
                     </div>
@@ -66,26 +66,22 @@
                             <p>Go Work Out</p>
                         </li>
                         <li v-else v-for="(todo, index) in todoList">
-                            <div>
-                                <button class="checkbox" :class="{ check: todo.complete }" @click="changeComplete(index)">
+                            <div class="dataBox">
+                                <button :class="{ check: todo.complete }" @click="changeComplete(index)">
                                     <font-awesome-icon icon="check-circle" />
                                 </button>
                                 <div>
                                     <h6>{{ todo.title }}</h6>
                                     <p>{{ todo.text }}</p>
                                 </div>
-
-                                <button class="priority" @click="priorityTodo(index)" :style="{ color: priorityColor(index, todo.priority)}">
-                                    <font-awesome-icon icon="star"/>
-                                </button>
-                                <button class="delete" @click="deleteTodo(index)">
-                                    <font-awesome-icon icon="trash"/>
-                                </button>
-                                <button class="edit" @click="editToggle(index)">
+                                <button @click="openToggle(index)">
                                     <font-awesome-icon icon="edit"/>
                                 </button>
+                                <button @click="deleteTodo(index)">
+                                    <font-awesome-icon icon="trash"/>
+                                </button>
                             </div>
-                            <div class="collapse" :class="{open}">
+                            <div class="collapse inputBox" :class="{show : todo.toggle}">
                                 <input
                                     type="text"
                                     placeholder="Title"
@@ -94,9 +90,18 @@
                                     type="text"
                                     placeholder="Somethings..."
                                     v-model.trim="todoList[index]['text']"/>
-                                <!-- <button class="alarm">
-                                    <font-awesome-icon icon="bell"/>
-                                </button> -->
+                                <div class="optionGroup">
+                                    <!-- <button class="alarm">
+                                        <font-awesome-icon icon="bell"/>
+                                    </button> -->
+                                    <button @click="priorityTodo(index)" :style="{ color: priorityColor(index, todo.priority)}">
+                                        <font-awesome-icon icon="star"/>
+                                    </button>
+                                </div>
+                                <footer class="actionGroup">
+                                    <button @click="closeToggle(index)">Cancel</button>
+                                    <button @click="editTodo(index)">Save</button>
+                                </footer>
                             </div>
                         </li>
                     </ul>
@@ -110,11 +115,11 @@
 const STORAGE_KEY = 'todo-list'
 const todoStorage = {
     fetch: function () {
-        var todos = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+        var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
         return todos;
     },
     save: function (todos) {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
     }
 }
 
@@ -129,15 +134,21 @@ export default {
                 completeRatio: 0,
                 uncompleteRatio: 0
             },
-            todoTitle:'',
-            todoContent: '',
+            todoData:{
+                title:'',
+                content: '',
+            },
+            toggleEdit: {
+                title:'',
+                content: '',
+            },
             todoTask: todoStorage.fetch(),
             todoList: [],
-            visibility: 'all',
+            visibility: '',
         }
     },
     watch: {
-        todos: {
+        todoTask: {
             handler: function(todos) {
                 todoStorage.save(todos);
             }
@@ -153,6 +164,9 @@ export default {
             return Math.round((_.filter(this.todoTask, function(o) { return !o.complete; }).length) / this.todoTask.length * 1000) / 10;
         }
     },
+    created() {
+        this.filterTodos('all');
+    },
     components: {
         FontAwesomeIcon
     },
@@ -163,27 +177,27 @@ export default {
         priorityColor(index, lv) {
             if(lv == 0){
                 return 'rgba(255, 255, 255, 0.25)';
-            }else if(lv > 5){
-                this.todoTask[index].priority = 0;
             }else{
-                return 'rgba(254, 228, 221, ' + (lv * 0.2) + ')';
+                return 'rgba(254, 228, 221, ' + (lv * 0.25) + ')';
             }
         },
         actionAddTodo() {
-            if(this.todoTitle === ""){
+            if(this.todoData.title === ""){
                 return false;
             }
-            if(this.todoTitle){
+            if(this.todoData.title){
                 this.todoTask.push({
-                    title: this.todoTitle,
-                    text: this.todoContent,
+                    title: this.todoData.title,
+                    text: this.todoData.content,
                     complete: false,
+                    toggle: false,
                     priority: 0
                 });
                 this.todoList = _.cloneDeep(this.todoTask);
             }
-            this.todoTitle = "";
-            this.todoContent = "";
+            this.todoData.title = "";
+            this.todoData.content = "";
+            this.openAction = false;
         },
         filterTodos: function(filter) {
             this.visibility = filter;
@@ -204,8 +218,31 @@ export default {
             this.todoList = _.cloneDeep(this.todoTask);
         },
         priorityTodo: function(index) {
-            this.todoTask[index].priority = this.todoTask[index].priority + 1;
-            this.todoList = _.orderBy(this.todoTask, 'priority', 'asc');
+            if(this.todoTask[index].priority >= 5){
+                this.todoTask[index].priority = 0;
+            }else{
+                this.todoTask[index].priority = this.todoTask[index].priority + 1;
+            }
+        },
+        openToggle: function(index){
+            this.openAction = false;
+            if(this.todoList[index].toggle){
+                this.todoList[index].toggle = false;
+            }else{
+                _.forEach(this.todoList, function(value, key) {
+                    value.toggle = (key == index);
+                });
+            }
+        },
+        closeToggle: function(index){
+            _.forEach(this.todoList, function(value, key) {
+                value.toggle = false;
+            });
+        },
+        editTodo: function(index){
+            this.todoTask = _.cloneDeep(this.todoList);
+            this.todoList = _.orderBy(this.todoTask, 'priority', 'desc');
+            this.closeToggle(index);
         },
         deleteTodo: function(index) {
             this.todoTask.splice(index, 1);

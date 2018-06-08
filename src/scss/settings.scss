@@ -25,7 +25,7 @@ h1{
     margin: $boxPadding auto;
     background-color: darken($black, 2);
     box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
-    // border: 3px solid lighten($black, 10);
+    border: 2px solid darken($black, 2);
     >div{
         @extend %container;
     }
