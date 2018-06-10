@@ -16,11 +16,8 @@ export default {
     data() {
         return {
             workUrl: [{
-				path: 'todoList',
-				name: 'To-Do List'
-			},{
-				path: 'no2',
-				name: 'no2'
+				path: '/no2',
+				name: 'Building'
 			}]
         }
     }

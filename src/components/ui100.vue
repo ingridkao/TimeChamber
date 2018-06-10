@@ -15,15 +15,15 @@
 
 <script>
 export default {
-    name: 'ui100',
+    name: 'Daily_UI',
     data() {
         return {
             workUrl: [{
-				path: 'todoList',
+				path: 'week1',
                 name: 'ToDo List',
                 subTitle: 'No_1'
 			},{
-				path: 'no2',
+				path: 'week2',
                 name: '--',
                 subTitle: 'No_2'
 /*			},{

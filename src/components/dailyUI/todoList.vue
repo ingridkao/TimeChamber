@@ -296,5 +296,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import "../../../scss/todolist.scss";
+	@import "../../scss/todolist.scss";
 </style>

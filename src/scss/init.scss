@@ -101,7 +101,7 @@ li{
             background-color: $black;
         }
     }
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 880px) {
         padding: $boxPadding $boxPadding $boxPadding/1.5 $boxPadding;
         >div{
             vertical-align: middle;
@@ -118,7 +118,7 @@ li{
             right: $boxPadding;
         }
     }
-    @media all and (max-width: 799px) {
+    @media all and (max-width: 879px) {
         padding: $boxPadding/2 $boxPadding/2 $boxPadding/1.5 $boxPadding/2;
         >div{
             vertical-align: bottom;
@@ -141,16 +141,15 @@ li{
     background-color: $black;
     color: $white;
     box-shadow: $boxPadding $boxPadding rgba(221, 221, 221, .5);
-    @media all and (min-width: 800px) {
+    margin: 0 auto;
+    @media all and (min-width: 880px) {
         width: calc(100vw - 7em);
-        max-width: 40em;
+        max-width: 42em;
         height: calc(100vh - 7em);
-        margin: 0 auto 0 5em;
         padding: $boxPadding;
     }
-    @media all and (max-width: 799px) {
+    @media all and (max-width: 879px) {
         width: calc(100vw - #{$boxPadding});
-        margin: 0 auto;
         padding: $boxPadding/2;
     }
 }
@@ -179,14 +178,14 @@ li{
             color: darken($skin, 5);
         }
     }
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 880px) {
         div{
             position: absolute;
             top: 0;
             right: 0;
         }
     }
-    @media all and (max-width: 799px) {
+    @media all and (max-width: 879px) {
         div{
             display: inline-block;
         }

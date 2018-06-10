@@ -1,20 +1,31 @@
 @import 'global';
 @import 'init';
-@import 'settings';
 
 $chartSize: 11em;
 
+h4{
+    font-size: 2em;
+}
+
+h6{
+    font-size: 1em;
+    margin-bottom: .5em;
+}
+
 .content{
+    > div{
+        display: inline-block;
+        vertical-align: top;
+        font-size: 1em;
+    }
     .leftSlide{
-        position: relative;
-        width: $chartSize + 2em;
-        margin-right: $boxPadding/2;
+        width: $chartSize + 3em;
         .chartBox{
             position: relative;
             width: $chartSize;
             height: $chartSize;
             border-radius: 50%;
-            margin: 4vh auto 4vh auto;
+            margin: 4vh auto 0 auto;
             box-shadow: inset 0 0 15px 0px darken($black, 20);
             .chartGauge{
                 position: absolute;
@@ -91,10 +102,8 @@ $chartSize: 11em;
         }
     }
     .rightSlide{
-        width: calc(100% - #{$chartSize + 4em});
-        @media all and (min-width: 880px) {
-            padding: 0 $boxPadding/2;
-        }
+        width: calc(100% - #{$chartSize + 6em});
+        
     }
 }
 
@@ -124,7 +133,7 @@ $chartSize: 11em;
     footer{
         width: 100%;
         height: 1.5em;
-        padding: .5em 0;
+        padding-bottom: .5em;
         > button{
             height: 100%;
             line-height: 0;
@@ -140,38 +149,16 @@ $chartSize: 11em;
 .optionGroup{
     text-align: left;
     padding: .25em 1em;
-    button,svg{
-        font-size: 1em;
-        margin-right: .25em;
-    }
-
-    .btnLabel{
-        @extend %btnRadius;
-        padding: .25em;
-        margin-right: 1em;
-        background: rgba($white, 0.25);
-        color: $black;
-        cursor: pointer;
-        input[type='file']{
-            display: none;
-        }
-    }
-    .fileName{
-        display: inline-block;
-        vertical-align: middle;
-        width: calc(100% - 9em);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+    button{
         font-size: .8em;
-        color:rgba($white, 0.5);
     }
 }
 
 .todoGroup{
     box-sizing: border-box;
-    margin: $boxPadding/2 0;
-    max-height: calc(100vh - 16em);
+    margin: 1em 0;
+    padding: 0.5em;
+    max-height: calc(100vh - 17em);
     li{
         display: block;
         border: 1px dotted darken($black, 7);
@@ -188,15 +175,6 @@ $chartSize: 11em;
                 padding: 0.25em 0 0.25em 2em;
                 background-color: darken($black, 2);
                 z-index: 1;
-                h5, p{
-                    overflow : hidden;
-                    text-overflow : ellipsis;
-                    white-space : nowrap;
-                    width : calc(100% - 5em);
-                    &.text{
-                        font-size: 0.65em;
-                    }
-                }
                 button{
                     position: absolute;
                     top: 0;
@@ -221,20 +199,15 @@ $chartSize: 11em;
                         right: 0.5em;
                     }
                 }
-                .detail span{
-                    color: darken($white, 50);
-                    font-size: .6em;
-                }
             }
             &.collapse{
                 text-align: center;
-                display: none;
                 padding: 0;
                 background-color: darken($black, 3);
-                margin-top: -8.5em;
+                margin-top: -45%;
+                opacity: 0;
                 z-index: 0;
                 &.show {
-                    display: block;
                     margin-top: 0;
                     opacity: 1;
                     visibility: visible;

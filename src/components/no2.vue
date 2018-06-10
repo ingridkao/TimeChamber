@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             prepare: false,
-            title: 'Not yet'
+            title: 'Building ...'
         }
     }
 }

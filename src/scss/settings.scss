@@ -18,13 +18,13 @@ h6{
 .sub_nav{
     max-width: 100%;
     white-space: nowrap;
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 880px) {
         position: absolute;
         top: $boxPadding/2;
         right: $boxPadding;
         padding-top: $boxPadding/2;
     }
-    @media all and (max-width: 799px) {
+    @media all and (max-width: 879px) {
         padding: $boxPadding 0 $boxPadding/2 0;
     }
 }
@@ -36,12 +36,12 @@ h6{
     >div{
         @extend %container;
     }
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 880px) {
         margin: $boxPadding auto;
         height: calc(100% - 3em);
         box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
     }
-    @media all and (max-width: 799px) {
+    @media all and (max-width: 879px) {
         margin: $boxPadding/2 auto;
         height: calc(100% - 5.5em);
         .unitTile{
@@ -53,7 +53,7 @@ h6{
 .content{
     @extend %container;
     box-sizing: border-box;
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 880px) {
         padding: $boxPadding;
         > div{
             font-size: 1em;
@@ -62,7 +62,7 @@ h6{
         }
 
     }
-    @media all and (max-width: 799px) {
+    @media all and (max-width: 879px) {
         padding: $boxPadding/4;
         > div{
             position: relative;
@@ -88,7 +88,7 @@ a.workLink{
     &:after{
         content: "";
         position: absolute;
-        top: 100%;
+        top: 95%;
         left: 0;
         right: 0;
         height: 2px;

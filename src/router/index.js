@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import About from '../components/about.vue'
 import Ui100 from '../components/ui100.vue'
 import Works from '../components/works.vue'
-import TodoList from '../components/dailyUI/no1/todoList.vue'
+import TodoList from '../components/dailyUI/todoList.vue'
+import Building from '../components/dailyUI/building.vue'
+
 import No2 from '../components/no2.vue'
 
 Vue.use(VueRouter)
@@ -13,37 +15,35 @@ export default new VueRouter({
     mode: 'history',
     base: __dirname,
     routes:[{
-        path: '/',
+        path: '/about',
         name: 'about',
         component: About
     },{
-        path: '/ui100',
-        name: 'ui100',
-        component: Ui100,
-        children: [{
-            path: '/todoList',
-            name: 'todoList',
-            component: TodoList,
-        },{
-            path: '/no2',
-            name: 'no2',
-            component: No2,
-        }]
-    },{
         path: '/works',
+        redirect: '/no2',
         name: 'works',
         component: Works,
         children: [{
-            path: '/todoList',
-            name: 'todoList',
-            component: TodoList,
-        },{
             path: '/no2',
             name: 'no2',
             component: No2,
         }]
     },{
-        path: '/*',
+        path: '/',
+        redirect: '/week1',
+        name: 'Daily_UI',
+        component: Ui100,
+        children: [{
+            path: '/week1',
+            name: 'todoList',
+            component: TodoList,
+        },{
+            path: '/week2',
+            name: 'building',
+            component: Building,
+        }]
+    },{
+        path: '*',
         redirect: '/',
     }]
 })
