@@ -1,6 +1,6 @@
 <template>
     <div class="components_ctn">
-        <h1>works_</h1>
+        <h1>Works_</h1>
         <div class="sub_nav">
             <span v-for="i in workUrl">
                 <router-link class="workLink" :to="i.path" :name="i.name">{{i.name}}</router-link>

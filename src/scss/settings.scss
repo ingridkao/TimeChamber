@@ -1,33 +1,73 @@
 @import 'global';
+@import 'init';
 
 h1{
-    @extend %text
+    @extend %text;
+    font-size: 1.25em;
 }
 
-.components_ctn{
-    @extend %windowCenterBox;
-    height: calc(100vh - 7em);
-    background-color: $black;
-    color: $white;
-    box-shadow: $boxPadding $boxPadding rgba(221, 221, 221, .5);
-    .sub_nav{
-        position: absolute;
-        top: $boxPadding;
-        right: $boxPadding;
+h4{
+    font-size: 2em;
+}
 
+h6{
+    font-size: 1em;
+    margin-bottom: .5em;
+}
+
+.sub_nav{
+    max-width: 100%;
+    white-space: nowrap;
+    @media all and (min-width: 800px) {
+        position: absolute;
+        top: $boxPadding/2;
+        right: $boxPadding;
+        padding-top: $boxPadding/2;
+    }
+    @media all and (max-width: 799px) {
+        padding: $boxPadding 0 $boxPadding/2 0;
     }
 }
 
 .box{
     box-sizing: border-box;
     width: 96%;
-    height: calc(100% - 5em);
-    margin: $boxPadding auto;
     background-color: darken($black, 2);
-    box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
-    border: 2px solid darken($black, 2);
     >div{
         @extend %container;
+    }
+    @media all and (min-width: 800px) {
+        margin: $boxPadding auto;
+        height: calc(100% - 3em);
+        box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
+    }
+    @media all and (max-width: 799px) {
+        margin: $boxPadding/2 auto;
+        height: calc(100% - 5.5em);
+        .unitTile{
+            display: none;
+        }
+    }
+}
+
+.content{
+    @extend %container;
+    box-sizing: border-box;
+    @media all and (min-width: 800px) {
+        padding: $boxPadding;
+        > div{
+            font-size: 1em;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+    }
+    @media all and (max-width: 799px) {
+        padding: $boxPadding/4;
+        > div{
+            position: relative;
+            width: 100% !important;
+        }
     }
 }
 

@@ -24,10 +24,6 @@ $boxPadding:1em;
 %windowCenterBox {
     box-sizing: border-box;
     position: relative;
-    width: 82%;
-    max-width: 50em;
-    margin: 0 auto;
-    padding: $boxPadding;
 }
 
 %btn{
@@ -41,7 +37,8 @@ $boxPadding:1em;
 %btnRadius{
     font-size: .75em;
     border-radius: 1.5em;
-    padding: .5em 1.25em;
+    padding: .5em .75em;
+    margin-bottom: .25em;
 }
 // @mixin label($text: 'Code', $background: $yellow, $color: rgba(black, 0.5)) {
 //     position: relative;

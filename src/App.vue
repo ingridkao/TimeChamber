@@ -7,9 +7,9 @@
 			</div>
 			<!-- <div class="menu"></div> -->
 			<div class="btnGroup langGroup rightSlide">
-				<button>En</button>
+				<button disabled>En</button>
 				|
-				<button class="active">ZhTw</button>
+				<button class="active" disabled>ZhTw</button>
 			</div>
 		</header>
 

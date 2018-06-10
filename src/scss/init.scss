@@ -26,7 +26,7 @@ a.typeLink{
     @extend %link;
     color: $white;
     display: block;
-    margin: 0 .5em;
+    margin: 0 .25em;
     border: 3px solid $white;
     text-transform:uppercase;
     font-weight: bold;
@@ -48,8 +48,10 @@ li{
     -webkit-overflow-scrolling: touch;
     &.scrollX{
         overflow-x: scroll;
+        overflow-y: hidden;
     }
     &.scrollY{
+        overflow-x: hidden;
         overflow-y: scroll;
     }
 }
@@ -84,14 +86,6 @@ li{
     background-color: $skin;
 }
 
-.leftSlide{
-    position: absolute;
-    left: $boxPadding;
-}
-.rightSlide{
-    position: absolute;
-    right: $boxPadding;
-}
 .vertical_center{
     box-sizing: border-box;
     height: 75%;
@@ -101,18 +95,63 @@ li{
     text-align: center;
 }
 .homeHeader{
-    padding: $boxPadding;
     >div{
         display: inline-block;
-        vertical-align: middle;
         &.logo{
-            width: $boxPadding * 3;
-            height: $boxPadding * 3;
             background-color: $black;
         }
-        &.main_nav{
+    }
+    @media all and (min-width: 800px) {
+        padding: $boxPadding $boxPadding $boxPadding/1.5 $boxPadding;
+        >div{
+            vertical-align: middle;
+        }
+        .logo{
+            width: $boxPadding * 3;
+            height: $boxPadding * 3;
+        }
+        .main_nav{
             margin: 0 $boxPadding;
         }
+        .langGroup{
+            position: absolute;
+            right: $boxPadding;
+        }
+    }
+    @media all and (max-width: 799px) {
+        padding: $boxPadding/2 $boxPadding/2 $boxPadding/1.5 $boxPadding/2;
+        >div{
+            vertical-align: bottom;
+        }
+        .logo{
+            width: $boxPadding * 2;
+            height: $boxPadding * 2;
+        }
+        .main_nav{
+            margin: 0;
+        }
+        .langGroup{
+            display: none;
+        }
+    }
+}
+
+.components_ctn{
+    @extend %windowCenterBox;
+    background-color: $black;
+    color: $white;
+    box-shadow: $boxPadding $boxPadding rgba(221, 221, 221, .5);
+    @media all and (min-width: 800px) {
+        width: calc(100vw - 7em);
+        max-width: 40em;
+        height: calc(100vh - 7em);
+        margin: 0 auto 0 5em;
+        padding: $boxPadding;
+    }
+    @media all and (max-width: 799px) {
+        width: calc(100vw - #{$boxPadding});
+        margin: 0 auto;
+        padding: $boxPadding/2;
     }
 }
 
@@ -130,13 +169,29 @@ li{
     } 
 }
 
-.actionGroup{
-    @extend %container;
-    .rightGroup{
-        position: absolute;
-        top: 0;
-        right: 0;
+.actionGroup {
+    position: relative;
+    button{
+        @extend %btnRadius;
+        background: darken($black, 7);
+        color: darken($skin, 10);
+        &:hover{
+            color: darken($skin, 5);
+        }
     }
+    @media all and (min-width: 800px) {
+        div{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    @media all and (max-width: 799px) {
+        div{
+            display: inline-block;
+        }
+    }
+
 }
 
 .btn{
