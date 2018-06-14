@@ -19,30 +19,17 @@ export default {
     data() {
         return {
             workUrl: [{
-				path: 'week1',
-                name: 'ToDo List',
+                path: '/dailyUI/week1',
+                name: 'ToDo_List',
                 subTitle: 'No_1'
 			},{
-				path: 'week2',
-                name: '--',
+                path: '/dailyUI/week2',
+                name: 'Filter',
                 subTitle: 'No_2'
-/*			},{
-				path: 'no3',
+			},{
+                path: '/dailyUI/week3',
                 name: '--',
                 subTitle: 'No_3'
-			},{
-				path: 'no3',
-                name: '--',
-                subTitle: 'No_3'
-			},{
-				path: 'no4',
-                name: '--',
-                subTitle: 'No_4'
-			},{
-				path: 'no5',
-                name: '--',
-                subTitle: 'No_5'
-*/
 			}]
         }
     }

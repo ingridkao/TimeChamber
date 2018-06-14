@@ -1,0 +1,372 @@
+@import 'global';
+@import 'init';
+@import 'settings';
+@import 'loading';
+
+$filterBoxSize: 10em;
+
+header{
+    padding: 0 $boxPadding/2;
+    border-bottom: 3px solid $black;
+    div{
+        display: inline-block;
+        &.subLogo{
+            width: $filterBoxSize + 1em;
+        }
+    }
+}
+
+.content{
+    position: relative;
+    padding: $boxPadding/2;
+    .leftSlide{
+        position: relative;
+        h6{
+            font-size: 0.9em;
+            color: lighten($blue, 5);
+        }
+    }
+    .rightSlide{
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: inset 0 0 $boxPadding darken($black, 3);
+        .bold{
+            color: lighten($blue, 10);
+            font-weight: bold;
+        }
+        h5{
+            font-size: 0.9em;
+            margin-bottom: .5em;
+        }
+        .tagBox{
+            button{
+                height: $boxPadding*2;
+                font-size: 0.75em;
+                padding: 0 0.75em;
+                border-radius: $boxPadding;
+                border: 2px solid darken($skin, 5);
+                color:darken($skin, 5);
+                margin-right: $boxPadding/2;
+                &:hover{
+                    background-color: darken($skin, 5);
+                    color: $blue;
+                }
+            }
+        }
+        .resultBox{
+            margin-bottom: 2em;
+            // max-height: calc(100vh - 20em);
+            >div{
+                position: relative;
+                margin: $boxPadding 0;
+                box-shadow: 0 0 $boxPadding rgba(#000, 0.3);
+                background: $white;
+                &:hover{
+                    box-shadow: 0 0 $boxPadding 0.1em rgba(#000, 0.6);
+                }
+                >div{
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .linkBtn{
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 0 4.5em 4.5em;
+                    border-color: transparent transparent rgba($skin, 0.6) transparent;
+                    transition: 250ms ease-out;
+                    &:after{
+                        content: 'Go';
+                        position: absolute;
+                        bottom: -3.5em;
+                        right: 0.5em;
+                        color: #999;
+                        font-size: 1.25em;
+                    }
+                    &:hover{
+                        border-width: 0 0 5em 5em;
+                    }
+                }
+            }
+        }
+        .pagination{
+            position: absolute;
+            right: 1.5em;
+            bottom: 0.5em;
+            text-align: right;
+            li{
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 0.25em;
+                button{
+                    cursor: pointer;
+                    border-radius: 3px;
+                    border: 2px solid darken($skin, 5);
+                    color:darken($skin, 5);
+                    &.active{
+                        background-color: rgba($skin, 0.3);
+                        color: $white;
+                    }
+                    &:enabled:hover{
+                        background-color: darken($skin, 5);
+                        color: $blue;
+                        font-weight: bold;
+                    }
+                    &:disabled{
+                        border-color: lighten($black, 40);
+                        color: lighten($black, 40);
+                        cursor: not-allowed;
+                    }
+                }
+                &.page button{
+                    font-size: 0.9em;
+                    padding: 0.1em 0.2em;
+                    min-width: 1.5em;
+                }
+                &.next button,
+                &.prev button{
+                    width: 1em;
+                    height: 1em;
+                    line-height: 1em;
+                    font-size: 1.5em;
+                }
+            }
+        }
+        .textBox{
+            box-sizing: border-box;
+            padding: .25em .5em;
+            color: lighten($black, 10);
+            h1{
+                color: lighten($blue, 15);
+            }
+            >p{
+                position:relative;
+                line-height: 1.6em;
+                font-size: .8em;  
+            }
+            span{
+                font-size: .7em;
+                margin-right: .4em;
+                &.zone{
+                    background-color: darken($white, 20);
+                    color:$white;
+                    border-radius: $boxPadding;
+                    padding: 0 .5em;
+                }
+            }
+            .infoBox{
+                font-size: .7em;
+                p{
+                    margin-top: .25em;
+                }
+            }
+        }
+        .listPage{
+            background: lighten($black, 3);
+            color: darken($white, 10);
+            padding: $boxPadding/2;
+            .textBox{
+                width: calc(100% - 11.5em);
+                padding: .25em .5em;
+                h1{
+                    font-size: .8em;
+                }
+                .subTitle{
+                    text-align: right;
+                    .ticketinfo{
+                        font-weight: bold;
+                        color: $black;
+                    }
+                }
+                >p{
+                    position:relative;
+                    height: 4.8em;
+                    overflow : hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    margin: .5em 0;
+                }
+            }
+        }
+        .resultPage{
+            background-color: lighten($black, 7.5);
+            padding: $boxPadding/2 $boxPadding;
+            .textBox{
+                background-color: $white;
+                padding: $boxPadding;
+                color: lighten($black, 5);
+                h1{
+                    font-size: 2em;
+                }
+                .subTitle span{
+                    margin-right: 1em;
+                    font-size: 0.75em;
+                }
+                .infoBox p{
+                    display: inline-block;
+                    margin-right: 1em;
+                    font-size: 1.1em;
+                }
+                >p{
+                    text-indent: 2em;
+                    margin: $boxPadding 0;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+    @media all and (min-width: $pc-media) {
+        .leftSlide{
+            width: $filterBoxSize;
+            margin-right: $boxPadding;
+        }
+        .rightSlide{
+            width: calc(100% - #{$filterBoxSize + 2em});
+        }
+    }
+    @media all and (max-width: $pcs-media) {
+        .leftSlide{
+        }        
+        .rightSlide{
+            padding: 0 $boxPadding/2;
+        }
+    }
+}
+
+.breadcrumbs{
+    color: $white;
+    margin-bottom: .5em;
+    button{
+        font-size: 1em;
+        color: $skin;
+        font-weight: bold;
+    }
+}
+
+.inputBox{
+    position: absolute;
+    z-index: 10;
+    box-sizing: border-box;
+    background: darken($white, 2);
+    padding: .5em;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 5);
+    transition: all 250ms cubic-bezier(0.570, 0.660, 0.685, 0.105);
+    &.open{
+        visibility: visible;
+        opacity: 1; 
+    }
+    >div{
+        text-align: left;
+        padding-left: $boxPadding*2;
+    }
+    input{
+        width: calc(100% - #{$boxPadding*4});
+        height: 1em;
+        border-radius: 2em;
+        margin: $boxPadding/2 0;
+        color: $blue;
+    }
+    footer{
+        width: 100%;
+        height: 1.5em;
+        padding: .5em 0;
+        > button{
+            height: 100%;
+            line-height: 0;
+            font-size: 0.8em;
+            color: lighten($blue, 5);
+            &:hover{
+                color: lighten($blue, 10);
+            }
+        }
+    }
+}
+
+.optionGroup{
+    text-align: left;
+    button,svg{
+        font-size: 1em;
+        margin-right: .25em;
+    }
+
+    .btnLabel{
+        @extend %btnRadius;
+        padding: .25em;
+        margin-right: 1em;
+        background: rgba($white, 0.25);
+        color: $black;
+        cursor: pointer;
+        input[type='file']{
+            display: none;
+        }
+    }
+    .fileName{
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(100% - 9em);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: .8em;
+        color:rgba($white, 0.5);
+    }
+    @media all and (min-width: $phones-media) {
+        input{
+            display: inline-block;
+            width: 13em;
+            margin-right: $boxPadding;
+        }
+    }
+    @media all and (max-width: $phones-media) {
+        input{
+            margin-bottom: $boxPadding;
+        }
+    }
+}
+
+.btn.addTodo{
+    position: relative;
+    width: 100%;
+    border: 2px solid $blue;
+    color:$blue;
+    font-weight: bold;
+    &:after{
+        content: '-';
+        position: absolute;
+        color: $blue;
+        font-size: 1.75em;
+        z-index: 5;
+        top: 0;
+        right: .5em;
+    }
+    &.open{
+        color:$skin;
+        border-color: $skin;
+        &:after{
+            content: '+';
+            color:$skin;
+        }
+    }
+}
+
+.createTodo{
+    @extend %btnRadius;
+    background-color: lighten($blue, 10);
+    color: $white;
+    margin: .5em;
+    &:hover{
+        background-color: $blue;
+    }
+    &:disabled{
+        background-color: #ddd;
+        cursor: not-allowed;
+    }
+}

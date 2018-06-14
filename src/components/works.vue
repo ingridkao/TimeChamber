@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             workUrl: [{
-				path: '/no2',
+				path: '/works/no2',
 				name: 'Building'
 			}]
         }

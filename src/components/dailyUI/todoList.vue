@@ -1,8 +1,8 @@
 <template>
-    <div class="box">
+    <div class="box limit">
         <div class="content">
             <div class="leftSlide">
-                <h6 class="unitTile">ToDo List</h6>
+                <h6 class="unitTile">Week1_ToDo List</h6>
                 <button class="btn addTodo" :class="{ open: !openAction }" @click="openAction = !openAction">New Task</button>
                 <div class="inputBox" :class="{ open: openAction }">
                     <input
@@ -68,7 +68,7 @@
                         <transition-group name="list-complete" mode="out-in">
                                 <li v-for="(todo, index) in todoList" :key="index">
                                     <div class="dataBox">
-                                        <button :class="{ check: todo.complete }" @click="changeComplete(index)">
+                                        <button class="checkBtn" :class="{ check: todo.complete }" @click="changeComplete(index)">
                                             <font-awesome-icon icon="check-circle" />
                                         </button>
                                         <div>
@@ -97,20 +97,22 @@
                                     </div>
 
                                     <div class="collapse inputBox" :class="{show : todo.toggle}">
-                                        <input
-                                            type="text"
-                                            placeholder="Title"
-                                            maxlength="22"
-                                            v-model.trim="todoList[index]['title']"/>
-                                        <input
-                                            type="text"
-                                            placeholder="Somethings..."
-                                            maxlength="26"
-                                            v-model.trim="todoList[index]['text']"/>
-                                        <input
-                                            type="date"
-                                            v-model="todoList[index]['alart']"/>
+                                        <div>
+                                            <input
+                                                type="text"
+                                                placeholder="Title"
+                                                maxlength="22"
+                                                v-model.trim="todoList[index]['title']"/>
+                                            <input
+                                                type="text"
+                                                placeholder="Somethings..."
+                                                maxlength="26"
+                                                v-model.trim="todoList[index]['text']"/>
+                                        </div>
                                         <div class="optionGroup">
+                                            <input
+                                                type="date"
+                                                v-model="todoList[index]['alart']"/>
                                             <button @click="priorityTodo(index)" :style="{ color: priorityColor(index, todo.priority)}">
                                                 <font-awesome-icon icon="star"/>
                                             </button>

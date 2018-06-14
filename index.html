@@ -12,10 +12,34 @@
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
       }
+      body {
+          scrollbar-face-color: #666;
+          scrollbar-track-color: #ddd;
+          scrollbar-arrow-color: #fff;
+          -webkit-overflow-scrolling: touch;
+          overflow: scroll;
+          background-color: #fee4dd;
+      }
+      body::-webkit-scrollbar{
+          width: 0.6em;
+          height: 0.6em;
+          cursor: pointer;
+      }
+      body::-webkit-scrollbar-thumb{
+          background-color: rgba(87, 97, 187, 0.4);
+          border-radius: 16px;
+      }
+      body::-webkit-scrollbar-thumb:hover{
+          background-color: rgba(87, 97, 187, 0.8);
+      }
+      ::-webkit-scrollbar-track{
+          background: rgba(50,50,50, 0.1);
+          border-radius: 16px;
+      }
     </style>
   </head>
   <body>
     <div id="app"></div>
-    <script src="./dist/build.js"></script>
+    <script src="/dist/build.js"></script>
   </body>
 </html>

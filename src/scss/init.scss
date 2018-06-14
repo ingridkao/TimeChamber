@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import 'global';
+
 *{
     margin: 0;
     padding: 0;
@@ -33,7 +34,11 @@ a.typeLink{
     font-size: .8em;
     &:hover{
         text-shadow: 3px 3px #ddd;
-        box-shadow: .5em .5em rgba(#ddd, 0.5);
+        box-shadow: .5em .5em rgba(#ddd, 0.8);
+    }
+    &.router-link-active{
+        color: lighten($white, 10);
+        box-shadow: .5em .5em rgba(#ddd, 0.4);
     }
 }
 
@@ -76,14 +81,11 @@ li{
     border-radius: 16px;
 }
 
-
 #app{
     @extend %container;
-    height: 100vh;
     font-family: Rubik, "Microsoft JhengHei",OpenSans,Helvetica,sans-serif;
     font-size: 22px;
     color: $black;
-    background-color: $skin;
 }
 
 .vertical_center{
@@ -91,6 +93,7 @@ li{
     height: 75%;
     padding-top: 25%;
 }
+
 .center{
     text-align: center;
 }
@@ -101,7 +104,7 @@ li{
             background-color: $black;
         }
     }
-    @media all and (min-width: 880px) {
+    @media all and (min-width: $pad-media) {
         padding: $boxPadding $boxPadding $boxPadding/1.5 $boxPadding;
         >div{
             vertical-align: middle;
@@ -118,7 +121,7 @@ li{
             right: $boxPadding;
         }
     }
-    @media all and (max-width: 879px) {
+    @media all and (max-width: $pads-media) {
         padding: $boxPadding/2 $boxPadding/2 $boxPadding/1.5 $boxPadding/2;
         >div{
             vertical-align: bottom;
@@ -141,14 +144,14 @@ li{
     background-color: $black;
     color: $white;
     box-shadow: $boxPadding $boxPadding rgba(221, 221, 221, .5);
-    margin: 0 auto;
-    @media all and (min-width: 880px) {
+    margin: 0 auto $boxPadding*2 auto;
+    @media all and (min-width: $pad-media) {
         width: calc(100vw - 7em);
-        max-width: 42em;
-        height: calc(100vh - 7em);
+        max-width: 56em;
+        // height: calc(100vh - 7em);
         padding: $boxPadding;
     }
-    @media all and (max-width: 879px) {
+    @media all and (max-width: $pads-media) {
         width: calc(100vw - #{$boxPadding});
         padding: $boxPadding/2;
     }
@@ -178,14 +181,14 @@ li{
             color: darken($skin, 5);
         }
     }
-    @media all and (min-width: 880px) {
+    @media all and (min-width: $pad-media) {
         div{
             position: absolute;
             top: 0;
             right: 0;
         }
     }
-    @media all and (max-width: 879px) {
+    @media all and (max-width: $pads-media) {
         div{
             display: inline-block;
         }

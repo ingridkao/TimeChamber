@@ -7,14 +7,11 @@ $chartSize: 11em;
 .content{
     .leftSlide{
         position: relative;
-        width: $chartSize + 2em;
-        margin-right: $boxPadding/2;
         .chartBox{
             position: relative;
             width: $chartSize;
             height: $chartSize;
             border-radius: 50%;
-            margin: 4vh auto 4vh auto;
             box-shadow: inset 0 0 15px 0px darken($black, 20);
             .chartGauge{
                 position: absolute;
@@ -62,7 +59,7 @@ $chartSize: 11em;
                     height: 100%;
                     left: -100%;
                     text-align: center;
-                    padding: 27.5% 0;
+                    padding: 22.5% 0;
                     mix-blend-mode: screen;
                     -webkit-transition: left 450ms cubic-bezier(0.570, 0.660, 0.685, 0.105);
                     -moz-transition: left 450ms cubic-bezier(0.570, 0.660, 0.685, 0.105);
@@ -90,10 +87,43 @@ $chartSize: 11em;
             }
         }
     }
-    .rightSlide{
-        width: calc(100% - #{$chartSize + 4em});
-        @media all and (min-width: 880px) {
+    @media all and (min-width: $pc-media) {
+        .leftSlide{
+            width: $chartSize + 2em;
+            margin-right: $boxPadding*2;
+            .chartBox{
+                margin: 45% auto 0 auto;
+            }
+        }
+        .rightSlide{
+            width: calc(100% - #{$chartSize + 5em});
+        }
+    }
+    @media all and (min-width:$phone-media) and (max-width: $pcs-media){
+        .leftSlide{
+            .chartBox{
+                margin: $boxPadding 0 0 $boxPadding;
+            }
+        }        
+        .rightSlide{
+            .actionGroup{
+                text-align: right;
+                width: 11em;
+                margin: 0 0 0 calc(100% - 12em);
+            }
+        }
+    }
+    @media all and (max-width: $phones-media) {
+        .leftSlide{
+            .chartBox{
+                margin: $boxPadding auto;
+            }
+        }        
+        .rightSlide{
             padding: 0 $boxPadding/2;
+            .actionGroup{
+                padding-top: $boxPadding;
+            }
         }
     }
 }
@@ -101,7 +131,6 @@ $chartSize: 11em;
 .inputBox{
     position: absolute;
     z-index: 10;
-    //width: 100%;
     box-sizing: border-box;
     background: darken($white, 2);
     padding: .5em;
@@ -114,12 +143,12 @@ $chartSize: 11em;
         visibility: visible;
         opacity: 1; 
     }
+    >div{
+        text-align: left;
+        padding-left: $boxPadding*2;
+    }
     input{
-        width: 80%;
-        height: 1em;
-        border-radius: 2em;
-        margin: .5em auto;
-        color: $blue;
+        width: calc(100% - #{$boxPadding*4});
     }
     footer{
         width: 100%;
@@ -139,7 +168,6 @@ $chartSize: 11em;
 
 .optionGroup{
     text-align: left;
-    padding: .25em 1em;
     button,svg{
         font-size: 1em;
         margin-right: .25em;
@@ -165,6 +193,18 @@ $chartSize: 11em;
         white-space: nowrap;
         font-size: .8em;
         color:rgba($white, 0.5);
+    }
+    @media all and (min-width: $phones-media) {
+        input{
+            display: inline-block;
+            width: 13em;
+            margin-right: $boxPadding;
+        }
+    }
+    @media all and (max-width: $phones-media) {
+        input{
+            margin-bottom: $boxPadding;
+        }
     }
 }
 
@@ -205,15 +245,7 @@ $chartSize: 11em;
                     height: 100%;
                     &:nth-child(1){
                         left: .5em;
-                        transition: 250ms ease-out;
-                        &.check{
-                            color: $skin;
-                            transform: scale(1.2);
-                        }
                     }
-                    // &:nth-child(3){
-                    //     right: 3.75em;
-                    // }
                     &:nth-child(3){
                         right: 2em;
                     }

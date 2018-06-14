@@ -18,7 +18,7 @@ export default {
 				path: '/works',
 				name: 'Works'
 			},{
-				path: '/ui100',
+				path: '/dailyUI',
 				name: 'Daily_UI'
 			}
 		]}

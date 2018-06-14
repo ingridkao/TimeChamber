@@ -15,18 +15,48 @@ h6{
     margin-bottom: .5em;
 }
 
+select,
+input{
+    margin: $boxPadding/2 0;
+    color: $blue;
+    border-radius: 2em;
+    &:focus {
+        outline: none;
+        border: none;
+    }  
+}
+
+select{
+    height: 2em;
+    outline: none;
+    font-size: .8em;
+    padding: 0 1em;
+    width: 94%;
+}
+
+input{
+    height: 1em;
+}
+
 .sub_nav{
     max-width: 100%;
     white-space: nowrap;
-    @media all and (min-width: 880px) {
+    @media all and (min-width: $pad-media) {
         position: absolute;
         top: $boxPadding/2;
         right: $boxPadding;
         padding-top: $boxPadding/2;
     }
-    @media all and (max-width: 879px) {
+    @media all and (max-width: $pads-media) {
         padding: $boxPadding 0 $boxPadding/2 0;
     }
+}
+
+.telHref{
+    display: inline-block;
+    color: darken($blue ,10);
+    text-decoration: none;
+    border-bottom: 2px solid rgba($blue ,0.3);
 }
 
 .box{
@@ -36,12 +66,14 @@ h6{
     >div{
         @extend %container;
     }
-    @media all and (min-width: 880px) {
-        margin: $boxPadding auto;
-        height: calc(100% - 3em);
+    @media all and (min-width: $pad-media) {
+        &.limit{
+            height: calc(100vh - 11.5em);
+        }
+        margin: $boxPadding/2 auto;
         box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
     }
-    @media all and (max-width: 879px) {
+    @media all and (max-width: $pads-media) {
         margin: $boxPadding/2 auto;
         height: calc(100% - 5.5em);
         .unitTile{
@@ -53,20 +85,19 @@ h6{
 .content{
     @extend %container;
     box-sizing: border-box;
-    @media all and (min-width: 880px) {
+    position: relative;
+    @media all and (min-width: $pad-media) {
         padding: $boxPadding;
         > div{
             font-size: 1em;
             display: inline-block;
             vertical-align: top;
         }
-
     }
-    @media all and (max-width: 879px) {
+    @media all and (max-width: $pads-media) {
         padding: $boxPadding/4;
         > div{
-            position: relative;
-            width: 100% !important;
+            width: 100%;
         }
     }
 }
@@ -103,4 +134,139 @@ a.workLink{
         -webkit-transform: scalex(1);
         transform: scalex(1);
     }
+}
+
+.imgBox{
+    position: relative;
+    overflow: hidden;
+    &.square{
+        width: 11em;
+        height: 11em;
+        background: darken($black, 5);
+        img{
+            position: absolute;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
+    &.original{
+        width: 100%;
+        height: 16em;
+        text-align: center;
+        background: lighten($black, 5);
+        img{
+            height: 100%;
+        }
+    }
+}
+
+.searchBox{
+    position: relative;
+    label{
+        color: darken($white, 40);
+    }
+    input{
+        color: lighten($blue, 10);
+        height: 1.5em;
+        line-height: 1.5em;
+        font-size: 1em;
+        border-radius: 0;
+        background: transparent;
+        padding: 0 $boxPadding/2;
+        border-bottom: 2px solid darken($blue, 10);
+        &:focus{
+            border-bottom-color: $blue;
+        }
+    }
+    button{
+        position: absolute;
+        right: -1em;
+        bottom: .75em;
+        font-size: 1em;
+        color: lighten($blue, 10);
+    }
+}
+
+.filterBox{
+    >div{
+        margin-bottom: .5em;
+        select,
+        input{
+            margin: 0 0 0 .5em;
+            background-color: lighten($black, 7.5);
+            color: lighten($black, 60);
+        }
+        label{
+            font-size: 0.75em;
+            padding-left: $boxPadding/2;
+            color: darken($white, 40);
+        }
+        .categoryBtn{
+            display: block;
+            font-size: 0.9em;
+            padding: $boxPadding/3 $boxPadding/2;
+            color: lighten($black, 30);
+        }
+        .checkBox{
+            padding: $boxPadding/4 $boxPadding/2;
+            >*{
+                cursor: pointer;
+            }
+            label{
+                font-size: 0.9em;
+                color: lighten($black, 30);
+            }
+            input{
+                position: relative;
+                outline: 0;
+                z-index: 0;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 0.8em;
+                    height: 0.8em;
+                    background: lighten($black, 5);
+                    z-index: 1;
+                    border: 0.1em solid lighten($black, 20);
+                }
+                &:checked{
+                    &:before{
+                        background: $blue;
+                        border-color: lighten($black, 50);
+                    }
+                    + label{
+                        color:lighten($blue, 15);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.checkBtn{
+    svg{
+        font-size: 1em;
+        color: lighten($black, 10);
+        transition: 250ms ease-out;
+    }
+    &.check svg{
+        color: $skin;
+        transform: scale(1.2);
+    }
+}
+
+.fade-enter-active {
+    transition: opacity 3s ease-in-out;
+}
+
+.fade-enter-to {
+    opacity: 1;
+}
+
+.fade-enter {
+    opacity: 0;
 }
