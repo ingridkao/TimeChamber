@@ -68,7 +68,7 @@ input{
     }
     @media all and (min-width: $pad-media) {
         &.limit{
-            height: calc(100vh - 11.5em);
+            height: calc(100vh - 12em);
         }
         margin: $boxPadding/2 auto;
         box-shadow: 0 0 $boxPadding/2 $boxPadding/4 darken($black, 3);
@@ -168,24 +168,24 @@ a.workLink{
         color: darken($white, 40);
     }
     input{
-        color: lighten($blue, 10);
+        color: darken($skin, 10);
         height: 1.5em;
         line-height: 1.5em;
         font-size: 1em;
         border-radius: 0;
         background: transparent;
         padding: 0 $boxPadding/2;
-        border-bottom: 2px solid darken($blue, 10);
+        border-bottom: 2px solid darken($skin, 10);
         &:focus{
-            border-bottom-color: $blue;
+            border-bottom-color: $skin;
         }
     }
     button{
         position: absolute;
-        right: -1em;
+        right: 0.5em;
         bottom: .75em;
         font-size: 1em;
-        color: lighten($blue, 10);
+        color: darken($skin, 10);
     }
 }
 

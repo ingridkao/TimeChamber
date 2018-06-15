@@ -39,6 +39,7 @@ header{
             margin-bottom: .5em;
         }
         .tagBox{
+            margin-bottom: $boxPadding;
             button{
                 height: $boxPadding*2;
                 font-size: 0.75em;
@@ -58,7 +59,7 @@ header{
             // max-height: calc(100vh - 20em);
             >div{
                 position: relative;
-                margin: $boxPadding 0;
+                margin: 0 0 $boxPadding 0;
                 box-shadow: 0 0 $boxPadding rgba(#000, 0.3);
                 background: $white;
                 &:hover{

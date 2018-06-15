@@ -43,7 +43,7 @@
             <div class="boxLoading" v-if="loading"></div>
             <div class="rightSlide" v-else>
                 <div class="listPage" v-show="showList">
-                    <h5>Showing <span class="bold"> {{ travelList.length }} </span>results by ...</h5>
+                    <h5 v-if="page.amount < 100">Finding <span class="bold"> {{ page.amount }} </span>results by ...</h5>
                     <div class="tagBox">
                         <button v-show="locFilter != ''" @click="reduseLoc()">
                             {{ locFilter }} <font-awesome-icon icon="times-circle"/>
@@ -154,7 +154,7 @@ export default {
             searchText:'',
             locationList:[],
             locFilter: '',
-            categoriesList:['人文教育','自然公園','歷史古蹟','宗教廟宇','湖水河畔','溫泉區','休閒體驗','美食商圈','其他'],
+            categoriesList:['人文教育','自然公園','歷史古蹟','宗教廟宇','河畔漁港','溫泉區','休閒體驗','美食商圈','其他'],
             filterConditions:[],
             allData: [],
             filterData: [],
@@ -165,7 +165,8 @@ export default {
                 curretPage: 1,
                 prevPage: 1,
                 nextPage: 1,
-                pageTotal:[]
+                pageTotal:[],
+                amount: null
             },
             dataInfo:{}
         }
@@ -181,7 +182,7 @@ export default {
     },
     methods: {
         updatePage: function(amount){
-            if(amount == undefined)return;
+            this.page.amount = amount;
             if(amount > 0){
                 if(amount < this.page.limit){
                     this.page.nextPage = 1;
@@ -243,40 +244,92 @@ export default {
             }); 
         },
         updateDataList: function(){
-            if(this.searchText == '' && this.locFilter == '' && this.filterConditions.length == 0 ){
-                // Use Vue-infinite-loading
-                // this.travelList = this.allData.records;
-                // 顯示前10筆
-                this.travelList = this.allData.records.slice(0, 24)
-                this.updatePage(this.allData.total);
-            }else{
-                if(this.searchText != ''){
-                    if(this.filterData.records.length > 0){
-                        this.travelList = this.filterData.records;
-                    }else{
-                        this.travelList = this.allData.records.filter(rs => {
-                            return rs['Name'].indexOf(this.searchText) != -1;
-                        });
-                    }
-                }
-                this.travelList = _.filter(this.travelList, function(o) {
-                    // switch(expression) {
-                    //     case n:
-                    //         code block
-                    //         break;
-                    //     case n:
-                    //         code block
-                    //         break;
-                    //     default:
-                    //         code block
-                    // }
-                    return o.Class1 == 1;
-                });
-                this.travelList = this.travelList.filter(rs => {
+            if(this.searchText == '' && this.locFilter == '' && this.filterConditions.length == 0){
+                this.travelList = this.allData.records;
+            }
+            if(this.searchText == ''){
+                this.travelList = this.allData.records.filter(rs => {
                     return rs['Zone'].indexOf(this.locFilter) != -1;
                 });
-                this.updatePage(this.travelList.length);
+            }else{    
+                if(this.filterData.records.length > 0){
+                    this.travelList = this.filterData.records;
+                }else{
+                    // custom search
+                    this.travelList = this.allData.records.filter(rs => {
+                        return rs['Name'].indexOf(this.searchText) != -1;
+                    });
+                }
+                if(this.locFilter != ''){
+                    this.travelList = this.travelList.filter(rs => {
+                        return rs['Zone'].indexOf(this.locFilter) != -1;
+                    });
+                }
             }
+            // Filter
+            if(this.filterConditions.length > 0){
+                let vm = this;
+                let concatArray = [];
+                if(_.includes(vm.filterConditions , '人文教育')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 1 || o.Class1 == 2 || o.Class1 == 5;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '自然公園')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 11 || o.Class1 == 13;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '歷史古蹟')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 3;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '宗教廟宇')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 4;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '河畔漁港')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 12;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '溫泉區')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 10;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '休閒體驗')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 9 || o.Class1 == 14;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '美食商圈')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 6;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                if(_.includes(vm.filterConditions , '其他')){
+                    let filterArray = _.filter(this.travelList, function(o) {
+                        return o.Class1 == 7 || o.Class1 == 8 || o.Class1 == 15 || o.Class1 == 16 || o.Class1 == 17 || o.Class1 == 18;
+                    });
+                    concatArray = _.concat(concatArray, filterArray);
+                }
+                vm.travelList = concatArray;
+            }
+            // Use Vue-infinite-loading
+            // 顯示前25筆
+            this.updatePage(this.travelList.length);
+            this.travelList = this.travelList.slice(0, 25)
         },
         onLoaded:function(){
             this.imgLoading = true;

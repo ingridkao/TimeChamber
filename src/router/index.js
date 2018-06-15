@@ -32,22 +32,20 @@ export default new VueRouter({
         }]
     },{
         path: '/dailyUI',
-        redirect: '/dailyUI/week1',
-        name: 'Daily_UI',
+        redirect: '/dailyUI/week2',
         component: Ui100,
         children: [{
             path: '/dailyUI/week1',
-            component: TodoList,
+            component: TodoList
         },{
             path: '/dailyUI/week2',
-            component: Filter,
+            component: Filter
         },{
             path: '/dailyUI/week3',
-            component: Building,
+           component: Building
         }]
     },{
         path: '*',
-        // component: NotFound
         component: About
     }]
 })
