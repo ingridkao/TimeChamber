@@ -62,7 +62,7 @@
                             <div class="textBox">
                                 <h1>{{item.Name}}</h1>
                                 <div class="subTitle">
-                                    <span class="ticketinfo">{{item.Ticketinfo}}</span>
+                                    <span class="ticketinfo">{{(item.Ticketinfo == '')? 'Free':item.Ticketinfo}}</span>
                                     <span class="zone">{{item.Zone}}</span>
                                 </div>
                                 <p>{{item.Description}}</p>
@@ -70,6 +70,7 @@
                                     <p>
                                         <font-awesome-icon icon="map-marker-alt" />
                                         {{item.Add}}
+                                        <a class="mapBtn" :href="'https://www.google.com/maps/place/'+item.Add" target="_blank">Map</a>
                                     </p>
                                     <p>
                                         <font-awesome-icon icon="calendar-alt" />
@@ -115,7 +116,7 @@
                                 <span class="zone">{{dataInfo.Zone}}</span>
                                 <span class="ticketinfo">
                                     <font-awesome-icon icon="ticket-alt" />
-                                    {{dataInfo.Ticketinfo}}
+                                    {{(dataInfo.Ticketinfo ="")?'Free':dataInfo.Ticketinfo}}
                                 </span>
                                 <span>
                                     <font-awesome-icon icon="calendar-alt" />
@@ -126,6 +127,7 @@
                                 <p>
                                     <font-awesome-icon icon="map-marker-alt" />
                                     {{dataInfo.Add}}
+                                    <a class="mapBtn" :href="'https://www.google.com/maps/place/'+dataInfo.Add" target="_blank">Map</a>
                                 </p>
                                 <p>
                                     <font-awesome-icon icon="phone" />
