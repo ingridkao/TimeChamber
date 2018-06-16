@@ -84,7 +84,7 @@
                             <button class="linkBtn" @click="openInfo(item)"></button>
                         </div>
                     </div>
-                    <div class="pagination" v-if="travelList.length > 1">
+                    <!-- <div class="pagination" v-if="travelList.length > 1">
                         <ul>
                             <li class="prev">
                                 <button :disabled="page.curretPage == 1" @click="jumpToPage( 1 )">&#9669;</button>
@@ -96,7 +96,7 @@
                                 <button :disabled="page.curretPage == page.pageTotal" @click="jumpToPage( page.pageTotal )">&#9659;</button>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
 
 
@@ -202,21 +202,44 @@ export default {
             }
         },
         getAllData: function(){
-            this.loading = true;
-            this.$axios.get('https://data.kcg.gov.tw/api/action/datastore_search',{
+            var vm = this;
+            vm.loading = true;
+            vm.$axios.get('https://data.kcg.gov.tw/api/action/datastore_search',{
                 params: {
                     resource_id: '92290ee5-6e61-456f-80c0-249eae2fcc97',
-                    // limit: this.page.limit,
-                    offset: this.page.offset,
+                    // limit: vm.page.limit,
+                    offset: vm.page.offset,
                 }
             }).then(res => {
-                this.allData = res.data.result;
-                this.updateDataList();
-                // Update locationList
-                this.locationList = _.map(_.uniqBy(res.data.result.records, 'Zone'), 'Zone');
-                this.loading = false;
+                vm.allData = res.data.result.records;
+
+                //101-200
+                vm.$axios.get('https://data.kcg.gov.tw/api/action/datastore_search',{
+                    params: {
+                        resource_id: '92290ee5-6e61-456f-80c0-249eae2fcc97',
+                        offset: vm.page.offset + 100,
+                    }
+                }).then(res => {
+                    vm.allData = _.concat(res.data.result.records, vm.allData);
+
+                    let total = res.data.result.total - 1;
+                    //201-268
+                    vm.$axios.get('https://data.kcg.gov.tw/api/action/datastore_search',{
+                        params: {
+                            resource_id: '92290ee5-6e61-456f-80c0-249eae2fcc97',
+                            offset: total,
+                        }
+                    }).then(res => {
+                        vm.allData = _.concat(res.data.result.records, vm.allData);
+                        vm.updateDataList();
+                        // Update locationList
+                        vm.locationList = _.map(_.uniqBy(vm.allData, 'Zone'), 'Zone');
+                        vm.loading = false;
+                    });
+
+                });
             }).catch(e => {
-                this.errors.push(e);
+                vm.errors.push(e);
             });   
         },
         getFilterData: function(){
@@ -245,10 +268,10 @@ export default {
         },
         updateDataList: function(){
             if(this.searchText == '' && this.locFilter == '' && this.filterConditions.length == 0){
-                this.travelList = this.allData.records;
+                this.travelList = this.allData;
             }
             if(this.searchText == ''){
-                this.travelList = this.allData.records.filter(rs => {
+                this.travelList = this.allData.filter(rs => {
                     return rs['Zone'].indexOf(this.locFilter) != -1;
                 });
             }else{    
@@ -256,7 +279,7 @@ export default {
                     this.travelList = this.filterData.records;
                 }else{
                     // custom search
-                    this.travelList = this.allData.records.filter(rs => {
+                    this.travelList = this.allData.filter(rs => {
                         return rs['Name'].indexOf(this.searchText) != -1;
                     });
                 }
@@ -334,14 +357,14 @@ export default {
         onLoaded:function(){
             this.imgLoading = true;
         },
-        jumpToPage: function(target){
-            if(target == this.page.curretPage) return;
-            if(this.page.curretPage >= 1){
-                this.page.offset = (this.page.limit*target);
-                this.page.curretPage = this.page.offset;
-            }
-            this.updateDataList();
-        },
+        // jumpToPage: function(target){
+        //     if(target == this.page.curretPage) return;
+        //     if(this.page.curretPage >= 1){
+        //         this.page.offset = (this.page.limit*target);
+        //         this.page.curretPage = this.page.offset;
+        //     }
+        //     this.updateDataList();
+        // },
         openInfo: function(itemData){
             this.showList = false;
             this.dataInfo = itemData;

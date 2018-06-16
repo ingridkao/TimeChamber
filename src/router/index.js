@@ -16,7 +16,7 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false;
 
 export default new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     // base: __dirname,
     base: '/TimeChamber',
     routes:[{
