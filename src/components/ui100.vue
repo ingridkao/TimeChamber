@@ -18,6 +18,7 @@ export default {
     name: 'Daily_UI',
     data() {
         return {
+            // 之後將route傳過來
             workUrl: [{
                 path: '/dailyUI/week1',
                 name: 'ToDo_List',
@@ -30,6 +31,10 @@ export default {
                 path: '/dailyUI/week3',
                 name: '--',
                 subTitle: 'No_3'
+			},{
+                path: '/dailyUI/week4',
+                name: 'Gallery',
+                subTitle: 'No_4'
 			}]
         }
     }

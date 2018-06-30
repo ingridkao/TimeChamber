@@ -7,6 +7,7 @@ import Ui100 from '../components/ui100.vue'
 import Works from '../components/works.vue'
 import TodoList from '../components/dailyUI/todoList.vue'
 import Filter from '../components/dailyUI/filter.vue'
+import Gallery from '../components/dailyUI/gallery.vue'
 import Building from '../components/dailyUI/building.vue'
 
 import No2 from '../components/no2.vue'
@@ -42,7 +43,10 @@ export default new VueRouter({
             component: Filter
         },{
             path: '/dailyUI/week3',
-           component: Building
+            component: Building
+        },{
+            path: '/dailyUI/week4',
+            component: Gallery
         }]
     },{
         path: '*',
