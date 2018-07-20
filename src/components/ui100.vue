@@ -35,6 +35,10 @@ export default {
                 path: '/dailyUI/week4',
                 name: 'Gallery',
                 subTitle: 'No_4'
+			},{
+                path: '/dailyUI/week6',
+                name: 'Validation',
+                subTitle: 'No_6'
 			}]
         }
     }

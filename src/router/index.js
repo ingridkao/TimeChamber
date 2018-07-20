@@ -8,6 +8,8 @@ import Works from '../components/works.vue'
 import TodoList from '../components/dailyUI/todoList.vue'
 import Filter from '../components/dailyUI/filter.vue'
 import Gallery from '../components/dailyUI/gallery.vue'
+import Validation from '../components/dailyUI/validation.vue'
+
 import Building from '../components/dailyUI/building.vue'
 
 import No2 from '../components/no2.vue'
@@ -47,6 +49,9 @@ export default new VueRouter({
         },{
             path: '/dailyUI/week4',
             component: Gallery
+        },{
+            path: '/dailyUI/week6',
+            component: Validation
         }]
     },{
         path: '*',

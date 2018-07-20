@@ -1,16 +1,17 @@
 $white: #fff;
 $black: #363636;
-$skin:#fee4dd;
-$blue:#5761bb;
+$skin: #fee4dd;
+$blue: #5761bb;
 
-$pc-media:960px;
-$pcs-media:959px;
-$pad-media:880px;
-$pads-media:879px;
-$phone-media:480px;
-$phones-media:479px;
+$yellow:#ffbb08;
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 880px;
+$pads-media: 879px;
+$phone-media: 480px;
+$phones-media: 479px;
 
-$boxPadding:1em;
+$boxPadding: 1em;
 
 %container {
     position: relative;
@@ -20,7 +21,7 @@ $boxPadding:1em;
 %link {
     position: relative;
     text-decoration: none;
-    padding: .25em .5em;
+    padding: 0.25em 0.5em;
 }
 
 %text {
@@ -32,19 +33,19 @@ $boxPadding:1em;
     position: relative;
 }
 
-%btn{
-    font-size: .75em;
-    border-radius: .1em;
-    padding: .5em 1em;
+%btn {
+    font-size: 0.75em;
+    border-radius: 0.1em;
+    padding: 0.5em 1em;
     text-align: left;
     box-shadow: 3px 3px 6px rgba(#000, 0.5);
 }
 
-%btnRadius{
-    font-size: .75em;
+%btnRadius {
+    font-size: 0.75em;
     border-radius: 1.5em;
-    padding: .5em .75em;
-    margin-bottom: .25em;
+    padding: 0.5em 0.75em;
+    margin-bottom: 0.25em;
 }
 // @mixin label($text: 'Code', $background: $yellow, $color: rgba(black, 0.5)) {
 //     position: relative;
