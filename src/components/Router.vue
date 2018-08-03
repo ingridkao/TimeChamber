@@ -15,6 +15,9 @@ export default {
 				path: '/about',
 				name: 'About'
 			},{
+				path: '/resume',
+				name: 'Resume'
+			},{
 				path: '/works',
 				name: 'Works'
 			},{

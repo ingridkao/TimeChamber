@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import NotFound from '../components/notFound.vue'
+// // import NotFound from '../components/notFound.vue'
 import About from '../components/about.vue'
+import Resume from '../components/resume.vue'
 import Ui100 from '../components/ui100.vue'
 import Works from '../components/works.vue'
 import TodoList from '../components/dailyUI/todoList.vue'
@@ -24,7 +25,10 @@ export default new VueRouter({
     base: '/TimeChamber',
     routes:[{
         path: '/about',
-        component: About,
+        component: About
+    },{
+        path: '/resume',
+        component: Resume
     },{
         path: '/works',
         redirect: '/works/no2',

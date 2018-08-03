@@ -21,8 +21,9 @@ import faPhone from '@fortawesome/fontawesome-free-solid/faPhone'
 import faTicketAlt from '@fortawesome/fontawesome-free-solid/faTicketAlt'
 import faBullseye from '@fortawesome/fontawesome-free-solid/faBullseye'
 import faGenderless from '@fortawesome/fontawesome-free-solid/faGenderless'
+import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
 
-fontawesome.library.add(faBell, faCircle, faCheckCircle, faStar, faTrash, faEdit, faFolder, faSearch, faTimesCircle, faCalendarAlt, faMapMarkerAlt, faPhone, faTicketAlt, faBullseye, faGenderless)
+fontawesome.library.add(faBell, faCircle, faCheckCircle, faStar, faTrash, faEdit, faFolder, faSearch, faTimesCircle, faCalendarAlt, faMapMarkerAlt, faPhone, faTicketAlt, faBullseye, faGenderless, faEnvelope)
 
 import axios from 'axios';
 axios.defaults.timeout = 8000;

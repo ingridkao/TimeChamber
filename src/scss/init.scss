@@ -31,7 +31,6 @@ a.typeLink{
     border: 3px solid $white;
     text-transform:uppercase;
     font-weight: bold;
-    font-size: .8em;
     &:hover{
         text-shadow: 3px 3px #ddd;
         box-shadow: .5em .5em rgba(#ddd, 0.8);
@@ -108,6 +107,9 @@ li{
         padding: $boxPadding $boxPadding $boxPadding/1.5 $boxPadding;
         >div{
             vertical-align: middle;
+            a.typeLink{
+                font-size: .8em;
+            }
         }
         .logo{
             width: $boxPadding * 3;
@@ -124,7 +126,10 @@ li{
     @media all and (max-width: $pads-media) {
         padding: $boxPadding/2 $boxPadding/2 $boxPadding/1.5 $boxPadding/2;
         >div{
-            vertical-align: bottom;
+            vertical-align: middle;
+            a.typeLink{
+                font-size: .6em;
+            }
         }
         .logo{
             width: $boxPadding * 2;
@@ -193,7 +198,6 @@ li{
             display: inline-block;
         }
     }
-
 }
 
 .btn{

@@ -1,6 +1,66 @@
 @import 'global';
 @import 'init';
 
+.resumePage{
+    background-color:transparent;
+    box-shadow: none;
+    color:$black;
+    .content{
+        >div{
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 1em;
+            background-color:$white;
+            box-shadow: .5em .5em rgba(#ddd, 0.4);
+            &.title{
+                width: 9em;
+                padding: 0.5em 1em;
+                h6{
+                    color:lighten($blue, 10);
+                }
+                p{
+                    color:$grey;
+                }
+            }
+            &.info{
+                position: relative;
+                width: calc(100% - 9.5em - 4em);
+                padding: 1em;
+                h6{
+                    color:$grey;
+                    margin-bottom: 1em;
+                }
+                p{
+                    text-indent: 2em;
+                    margin-bottom: 0.5em;
+                    max-width: 36em;
+                    width: calc(100% - 10em);
+                }
+                button{
+                    @extend %btnNoshadow;
+                    position: absolute;
+                    bottom: 2em;
+                    right: 2em;
+                    background: $grey;
+                    color: $white;
+                    &:hover{
+                        background: darken($grey, 10);
+                    }
+
+                }
+            }
+        }
+        h6{
+            font-size: 0.75em;
+        }
+        p{
+            font-size: 0.7em;
+            line-height: 180%;
+        }
+    }
+
+}
 .pageTitle{
     position: absolute;
     top: 1em;
@@ -31,7 +91,6 @@ a{
 .rightAlign{
     text-align: right;
 }
-
 .aboutPage{
     width: calc(100vw - 7em);
     .personalImg{
@@ -42,24 +101,6 @@ a{
         background-size: cover;
         // background-image: url(/src/img/alert.png);
         background-color:#ddd;
-    }
-}
-
-.content{
-    h5{
-        font-size: 0.75em;
-        margin: 1em 0 .5em 0;
-        color:$grey;
-    }
-    h6{
-        text-indent: 2em;
-        font-size: 0.6em;
-        margin-top: 0.5em;
-    }
-    p{
-        text-indent: 2em;
-        font-size: 0.8em;
-        line-height: 180%;
     }
 }
 
@@ -168,7 +209,5 @@ a{
             display: none;
         }
     }
+
 }
-
-
-
