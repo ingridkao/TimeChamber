@@ -29,15 +29,30 @@ a.typeLink{
     display: block;
     margin: 0 .25em;
     border: 3px solid $white;
-    text-transform:uppercase;
-    font-weight: bold;
+    span{
+        text-transform:uppercase;
+        font-weight: bold;
+    }
     &:hover{
-        text-shadow: 3px 3px #ddd;
         box-shadow: .5em .5em rgba(#ddd, 0.8);
+        span{
+            text-shadow: 3px 3px #ddd;
+        }
     }
     &.router-link-active{
-        color: lighten($white, 10);
         box-shadow: .5em .5em rgba(#ddd, 0.4);
+        span{
+            color: lighten($white, 10);
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background: rgba(#ddd, 0.3);
+            width: 94%;
+            height: .5em;
+        }
     }
 }
 

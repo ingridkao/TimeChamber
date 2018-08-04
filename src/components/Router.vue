@@ -1,7 +1,9 @@
 <template>
 	<ul>
 		<li v-for="i in conf">
-			<router-link class="typeLink" :to="i.path" :name="i.name">{{i.name}}</router-link>
+			<router-link class="typeLink" :to="i.path" :name="i.name">
+				<span>{{i.name}}</span>
+			</router-link>
 		</li>
 	</ul>
 </template>
@@ -18,8 +20,8 @@ export default {
 				path: '/resume',
 				name: 'Resume'
 			},{
-				path: '/works',
-				name: 'Works'
+				path: '/project',
+				name: 'Project'
 			},{
 				path: '/dailyUI',
 				name: 'Daily_UI'

@@ -6,18 +6,26 @@
     box-shadow: none;
     color:$black;
     .content{
+        margin: 2em auto;
+        position: relative;
         >div{
             box-sizing: border-box;
-            display: inline-block;
-            vertical-align: top;
-            margin: 0 1em;
-            background-color:$white;
             box-shadow: .5em .5em rgba(#ddd, 0.4);
+            border-radius: 3px;
             &.title{
-                width: 9em;
+                position: absolute;
+                width: 10em;
+                top: -1em;
+                left: -1em;
+                z-index: 1;
                 padding: 0.5em 1em;
-                h6{
+                background-color:rgba($white,0.95);
+                h5{
                     color:lighten($blue, 10);
+                    margin-bottom: 0.5em;
+                }
+                h6{
+                    font-size: 0.7em;
                 }
                 p{
                     color:$grey;
@@ -25,11 +33,14 @@
             }
             &.info{
                 position: relative;
-                width: calc(100% - 9.5em - 4em);
-                padding: 1em;
+                width: calc(100% - 7em);
+                padding: 2em 3em 3em 3em;
+                margin-left: 8em;         
+                margin-bottom: 5em;
+                background-color:$white;
                 h6{
-                    color:$grey;
-                    margin-bottom: 1em;
+                    font-size: 0.75em;
+                    margin: 0.5em 0;
                 }
                 p{
                     text-indent: 2em;
@@ -37,39 +48,62 @@
                     max-width: 36em;
                     width: calc(100% - 10em);
                 }
-                button{
-                    @extend %btnNoshadow;
+                .btnzone{
                     position: absolute;
-                    bottom: 2em;
-                    right: 2em;
-                    background: $grey;
-                    color: $white;
-                    &:hover{
-                        background: darken($grey, 10);
+                    bottom: 1.5em;
+                    right: 1.5em;
+                    width: 8em;
+                    text-align: right;
+                    >*{
+                        width: 90%;
+                        margin: 0.5em 0;
                     }
-
+                    button{
+                        @extend %btnNoshadow;
+                        background: $grey;
+                        color: $white;
+                        &:hover{
+                            background: darken($grey, 10);
+                        }
+                    }
+                    a{
+                        border-radius: 3px;
+                        opacity: 0.6;
+                        &:hover{
+                            opacity: 0.9;
+                            background-color: rgba($blue, 0.1);
+                        }
+                    }
+                }
+                &:before{
+                    content: '';
+                    width: 0;
+                    height: 100%;
+                    position: absolute;
+                    left: -5em;
+                    top: 4.25em;
+                    border-left: 3px dashed rgba(221, 221, 221, .5);
                 }
             }
         }
         h6{
-            font-size: 0.75em;
+            color:$grey;
+            font-size: 0.7em;
         }
         p{
             font-size: 0.7em;
             line-height: 180%;
         }
+        &:last-child{
+            .info:before{
+                display: none;
+            } 
+        }
     }
+}
 
-}
-.pageTitle{
-    position: absolute;
-    top: 1em;
-    left: -2em;
-    width: 5em;
-    height: 2em;
-    line-height: 2em;
-    padding-left: 0.5em;
-}
+
+
 li{
     display: block;
 }
@@ -126,7 +160,6 @@ a{
         .content{
             padding:1em 0;
         }
-
     }
     a{
         width: auto;

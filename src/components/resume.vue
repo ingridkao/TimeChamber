@@ -2,14 +2,69 @@
     <div class="components_ctn resumePage">
         <div class="content">
             <div class="title">
-                <h6>Foxconn</h6>
-                <p>2016/4 - {{ getTodate }}</p>
+                <h5>鴻海</h5>
+                <h6>Front-end engineer</h6>
+                <p>2016/04 - {{ getTodate }}</p>
             </div>
             <div class="info">
                 <h6>Front-end engineer</h6>
-                <p>目前任職於鴻海I0T部門(2018年初轉入FII)，部門進行透過LoRa傳輸技術的網頁應用以及IoT網絡管理平台開發，在這裡的職位是前端工程師，工作內容包含網頁切版及前端程式與整合。</p>
-                <p>由於同事擅長的領域皆不大相同並不排斥解說，因此在各個專案中從系統設計、資料庫規畫、LoRa傳輸通訊層觀念有著初步的了解，後期能夠參予討論並對RESTful API及使用介面設計都有著更明確的方向，以助於前端程式的實現與整合。在專案中也經常與同事相互討論改善方法，並學習新技術以運用在正式專案上，如Apache設定或是使用Docker佈署環境等。</p>
-                <button class="">Project +</button>
+                <p>目前任職於鴻海網通IoT部門(2018年初轉入FII)，部門進行透過LoRa傳輸技術的網頁應用以及IoT網絡管理平台開發，在這裡的職位是前端工程師，工作內容包含網頁切版及前端程式與整合。</p>
+                <p>透過各個專案了解到初步的IoT架構及LoRa傳輸通訊層的觀念，以及與後端工程師討論資料庫及RESTful API設計。早期由於公司沒有設計師經常是自己設計規畫、切版寫功能，後期開始與UI/UX設計師說明系統設計與討論介面設計。</p>
+                <p>在專案中也經常與同事相互討論改善方法，並學習新技術以運用在正式專案上，如Apache設定或是使用Docker佈署環境等。</p>
+                <div class="btnzone">
+                    <button class="">Project +</button>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <h5>接案工作</h5>
+                <h6>Web designer</h6>
+                <!-- <h6>Piecework</h6> -->
+                <p>2017/03 - {{ getTodate }}</p>
+            </div>
+            <div class="info">
+                <p>偶然機會下，設計師朋友詢問是否可以短期合作媒體性質宣傳專案，與PM及設計師討論規格與設計稿，利用下班空餘時間製作具視覺效果的網頁。</p>
+                <p>由於公司專案通常是可以長期規劃與建構的大型web APP，在面對時程較快速的接案專案開始使用webpack等工具，並接觸到串接社群API、GA及開始與設計師合作。</p>
+                <div class="btnzone">
+                    <button class="">Project +</button>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <h5>資訊工業策進會</h5>
+                <h6>Web/APP</h6>
+                <h6>前端設計工程師養成班</h6>
+                <p>2015/09 - 2016/02</p>
+            </div>
+            <div class="info">
+                <p>擔任教職工作前後約五年，在這期間深刻感受到少子化衝擊以及正視未來人生規畫，在朋友的介紹之下前往中壢資策會，由於視覺藝術背景因此選擇報名前端課程，開始從零開始學習HTML5(HTML、CSS、Javascript)、MySQL、PHP等。</p>
+                <p>在這半年之中累積一件個人網頁及團體網站，前者從整體設計、RWD規劃、網頁切版與功能；最後三個月的作品則是從規畫使用者情境、資料庫設計到撰寫前後端程式。</p>
+                <div class="btnzone">
+                    <a href="http://140.115.236.72/demo-personal/ZD703/web/C1500350/" target="_blank">Personal Web</a>
+                    <a href="http://140.115.236.72/demo-projects/zd703/zd703g2/front/index.php" target="_blank">Project Web</a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <h6>Teacher</h6>
+                <h6>Artist & Mural</h6>
+                <p>2011/07 - 2015/11</p>
+            </div>
+            <div class="info">
+                <h6>教學經驗</h6>
+                <p>
+                    大學期間開始在畫室教授美術，教學對象年齡層從幼稚園到成人，研究所畢業後繼續在畫室、家教、學校等地方跑堂四年，工作內容從課程規畫、帶班管理到發掘學生潛能並提升其能力，經常需要控管時程以安排混雜的課程及零散的時間，在教學經驗中也磨練出與人溝通的耐心及觀察力。 
+                </p>
+                 <h6>壁畫經驗</h6>
+                <p>
+                    就學期間除了教學也經常洽談壁畫工作，範圍從小家庭牆面到幼稚園整體視覺規劃，或是大型公寓停車場視覺動線，從空無一物的牆面開始規劃工期到施工完畢，內容包含與客戶洽談需求、材料選用及施工方法、定稿報價、繪製牆面。由於必須避免工程延宕以及工法無法隨意重來以免浪費成本，因此訓練出快速應對突如其來的問題以及臨場決策判斷能力。
+                </p>
+                <!-- <div class="btnzone">
+                    <a href="https://drive.google.com/file/d/0B4343jp4xt4AZTJfQ0RTSHY3VGs/view?usp=sharing">PDF</a>
+                </div> -->
             </div>
         </div>
     </div>

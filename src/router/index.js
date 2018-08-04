@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import About from '../components/about.vue'
 import Resume from '../components/resume.vue'
 import Ui100 from '../components/ui100.vue'
-import Works from '../components/works.vue'
+import Project from '../components/project.vue'
 import TodoList from '../components/dailyUI/todoList.vue'
 import Filter from '../components/dailyUI/filter.vue'
 import Gallery from '../components/dailyUI/gallery.vue'
@@ -30,13 +30,8 @@ export default new VueRouter({
         path: '/resume',
         component: Resume
     },{
-        path: '/works',
-        redirect: '/works/no2',
-        component: Works,
-        children: [{
-            path: '/works/no2',
-            component: No2,
-        }]
+        path: '/project',
+        component: Project
     },{
         path: '/dailyUI',
         redirect: '/dailyUI/week2',
