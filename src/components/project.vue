@@ -107,7 +107,7 @@ export default {
                             'desc':[
                                 {
                                     'descTitle':'界面設計',
-                                    'content':['利用JQuery進行DOM物件與AJAX操作','透過materializecss規劃整體網頁介面及RWD調整']
+                                    'content':['使用JQuery進行DOM物件與AJAX操作','透過materializecss規劃整體網頁介面及RWD調整']
                                 },
                                 {
                                     'descTitle':'協作開發',
@@ -132,7 +132,7 @@ export default {
                             'desc':[
                                 {
                                     'descTitle':'協作開發',
-                                    'content':['利用舊有程式快速建置網頁','ThinkPHP API撰寫','以Sass撰寫介面排版']
+                                    'content':['利用舊有程式快速建置網頁','ThinkPHP API撰寫','以Sass撰寫介面排版']
                                 },
                                 {
                                     'descTitle':'參與討論',
@@ -151,7 +151,7 @@ export default {
                         {
                             'title':'新北市古道地圖',
                             'subtitle':null,
-                            'devTimeStart': '2016/05',
+                            'devTimeStart': null,
                             'devTimeEnd': null,
                             'maintainStart':null,
                             'maintainEnd': null,
@@ -172,7 +172,7 @@ export default {
                         {
                             'title':'履歷',
                             'subtitle': '將履歷與時光屋計劃合併成個人網頁',
-                            'devTimeStart': '2018/07',
+                            'devTimeStart': null,
                             'devTimeEnd': null,
                             'maintainStart':null,
                             'maintainEnd': null,

@@ -15,7 +15,7 @@
                     <li>Openlayer、Leaflet 地圖API 串接與應用</li>
                     <li>使用jquery、Vue2進行框架建構</li>
                     <li>使用Lodash、Axio、MomentJs處理資料與時間格式</li>
-                    <li>利用 Webpack操作函式庫並架設開發環境</li>
+                    <li>利用Webpack操作函式庫並架設開發環境</li>
                 </ul>
                 <h6>維護及部署公司專案</h6>
                 <ul>
@@ -34,19 +34,17 @@
         </div>
         <div class="content">
             <div class="title">
-                <h5>接案工作</h5>
+                <h5>接案</h5>
                 <h6>Web designer</h6>
                 <!-- <h6>Piecework</h6> -->
-                <p>2017/03 - {{ getTodate }}</p>
             </div>
             <div class="info">
-                <p>偶然機會下，設計師朋友詢問是否可以短期合作媒體性質宣傳專案，與PM及設計師討論規格與設計稿，利用下班空餘時間製作具視覺效果的網頁。</p>
-                <p>由於公司專案通常是可以長期規劃與建構的大型web APP，在面對時程較快速的接案專案開始使用webpack等工具，並接觸到串接社群API、GA及開始與設計師合作。</p>
-                <h6>網站主要開發者</h6>
+                <p>偶然機會下，設計師朋友詢問是否可以短期合作媒體性質宣傳專案，與PM及設計師討論規格與設計稿製作具視覺效果的網頁。</p>
+                <h6>主要開發者</h6>
                 <ul>
                     <li>與設計師討論撰寫頁面: 主要頁面排版及建立RWD頁面架構</li>
                     <li>Leaflet等API進圖地圖等操作</li>
-                    <li>介接第三方OAuth API實現登入機制</li>
+                    <li>介接Facebook OAuth API實現登入機制</li>
                     <li>使用Git在GitHub進行版本控制</li>
                     <li>使用GitHub Page建立靜態網頁</li>
                 </ul>
