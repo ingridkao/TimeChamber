@@ -4,25 +4,29 @@
         <div class="personalImg"></div> 
         <div class="content about">
             <h5>About</h5>
-            <p>{{ infoText }}</p>
+            <p>我是高慧芳，熱愛視覺藝術並喜歡與人互動的界面，為了實現這個喜好而不只停留在個人創作，從視覺藝術跨領域到程式中。</p>
+            <ul>
+                <li>樂於涉略多元技術及知識。</li>
+                <li>樂於團隊溝通合作。</li>
+            </ul>
         </div>
         <div class="content education">
             <h5>Education</h5>
-            <div v-for="(educate, index) in educList">
-                <h6>{{ educate.time }}</h6>
-                <p>
-                    {{ educate.name }}
-                </p>
-            </div>
+            <h6>國立新竹教育大學藝術教育與創作碩士班</h6>
+            <p>2011/9 - 2014/8</p>
         </div>
         <div class="content rightAlign contact">
-            <a href="mailto:ingird7613@gmail.com" target="_top">
+            <a href="mailto:ingird7613@gmail.com" target="_blank">
                 <font-awesome-icon icon="envelope" />
                 <span>ingird7613@gmail.com</span>
             </a>
             <a href="tel:0911-220-154">
                 <font-awesome-icon icon="phone" />
                 <span>0911-220-154</span>
+            </a>
+            <a href="https://github.com/ingridkao" target="_blank">
+                <font-awesome-icon icon="phone" />
+                <span>GitHub</span>
             </a>
         </div>
     </div>
@@ -31,18 +35,7 @@
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 export default {
     name: 'about',
-    data() {
-        return {
-            infoText:'我是高慧芳，熱愛視覺藝術並喜歡與人互動的界面，為了實現這個喜好而不只停留在個人創作，從視覺藝術跨領域到程式中。',
-            educList:[{
-                name:'國立新竹教育大學藝術教育與創作碩士班',
-                time:'2011/9 - 2014/8'
-            },{
-                name:'國立新竹教育大學藝術與設計學系 ',
-                time:'2005/9 - 2009/6'
-            }]
-        }
-    },
+    data() {},
     components: {
         FontAwesomeIcon
     },

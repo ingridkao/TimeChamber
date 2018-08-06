@@ -7,10 +7,26 @@
                 <p>2016/04 - {{ getTodate }}</p>
             </div>
             <div class="info">
-                <h6>Front-end engineer</h6>
-                <p>目前任職於鴻海網通IoT部門(2018年初轉入FII)，部門進行透過LoRa傳輸技術的網頁應用以及IoT網絡管理平台開發，在這裡的職位是前端工程師，工作內容包含網頁切版及前端程式與整合。</p>
-                <p>透過各個專案了解到初步的IoT架構及LoRa傳輸通訊層的觀念，以及與後端工程師討論資料庫及RESTful API設計。早期由於公司沒有設計師經常是自己設計規畫、切版寫功能，後期開始與UI/UX設計師說明系統設計與討論介面設計。</p>
-                <p>在專案中也經常與同事相互討論改善方法，並學習新技術以運用在正式專案上，如Apache設定或是使用Docker佈署環境等。</p>
+                <p>目前任職於鴻海網通IoT部門(2018年初轉入FII)，部門進行透過LoRa傳輸技術的網頁應用以及IoT網絡管理平台開發，在這裡的職位是前端工程師，工作內容包含網頁切版及前端程式與整合。早期公司尚未找尋到設計師，需要同時負責視覺設計規劃及網頁切版與程式撰寫。後期與UI/UX設計師討論如何優化用戶體驗時，除了解釋系統程式設計並可以即時判斷程式編寫難易度，使的來回討論時間更為快速及精準，經常成為其他工程師和設計師之間的橋梁。項目包含：</p>
+                <h6>網站前端主要開發者</h6>
+                <ul>
+                    <li>與設計師討論撰寫頁面: 管理系統整體介面、轉場動畫...等等</li>
+                    <li>討論系統資料庫設計與RESTful API，並串接後端API與介面應用</li>
+                    <li>Openlayer、Leaflet 地圖API 串接與應用</li>
+                    <li>使用jquery、Vue2進行框架建構</li>
+                    <li>使用Lodash、Axio、MomentJs處理資料與時間格式</li>
+                    <li>利用 Webpack操作函式庫並架設開發環境</li>
+                </ul>
+                <h6>維護及部署公司專案</h6>
+                <ul>
+                    <li>Apache與Redis server初步部署</li>
+                    <li>實作SSL Certificate</li>
+                    <li>使用Docker部署Web App</li>
+                </ul>
+                <h6>其他</h6>
+                <ul>
+                    <li>使用Git進行版本控制</li>
+                </ul>
                 <div class="btnzone">
                     <button class="">Project +</button>
                 </div>
@@ -26,6 +42,14 @@
             <div class="info">
                 <p>偶然機會下，設計師朋友詢問是否可以短期合作媒體性質宣傳專案，與PM及設計師討論規格與設計稿，利用下班空餘時間製作具視覺效果的網頁。</p>
                 <p>由於公司專案通常是可以長期規劃與建構的大型web APP，在面對時程較快速的接案專案開始使用webpack等工具，並接觸到串接社群API、GA及開始與設計師合作。</p>
+                <h6>網站主要開發者</h6>
+                <ul>
+                    <li>與設計師討論撰寫頁面: 主要頁面排版及建立RWD頁面架構</li>
+                    <li>Leaflet等API進圖地圖等操作</li>
+                    <li>介接第三方OAuth API實現登入機制</li>
+                    <li>使用Git在GitHub進行版本控制</li>
+                    <li>使用GitHub Page建立靜態網頁</li>
+                </ul>
                 <div class="btnzone">
                     <button class="">Project +</button>
                 </div>
@@ -41,6 +65,14 @@
             <div class="info">
                 <p>擔任教職工作前後約五年，在這期間深刻感受到少子化衝擊以及正視未來人生規畫，在朋友的介紹之下前往中壢資策會，由於視覺藝術背景因此選擇報名前端課程，開始從零開始學習HTML5(HTML、CSS、Javascript)、MySQL、PHP等。</p>
                 <p>在這半年之中累積一件個人網頁及團體網站，前者從整體設計、RWD規劃、網頁切版與功能；最後三個月的作品則是從規畫使用者情境、資料庫設計到撰寫前後端程式。</p>
+                <h6>團體專案：登入頁面及首頁</h6>
+                <ul>
+                    <li>頁面主要設計者並負責頁面切版及功能撰寫<li>
+                    <li>後端功能以PHP撰寫顯示新增修改功能</li>
+                    <li>使用者故事規劃及資料庫設計<li>
+                    <li>前端程式整合</li>
+                </ul>
+                
                 <div class="btnzone">
                     <a href="http://140.115.236.72/demo-personal/ZD703/web/C1500350/" target="_blank">Personal Web</a>
                     <a href="http://140.115.236.72/demo-projects/zd703/zd703g2/front/index.php" target="_blank">Project Web</a>
