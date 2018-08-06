@@ -7,7 +7,7 @@
                     <div class="info">
                         <h6>{{ product.title}}</h6>
                         <p v-if="product.subtitle != null">{{ product.subtitle}}</p>
-                        <p>開發時間：{{ product.devTimeStart }} - {{ (product.devTimeStart == null)? getTodate: product.devTimeStart}}</p>
+                        <p v-if="product.devTimeStart != null">開發時間：{{ product.devTimeStart }} - {{ (product.devTimeStart == null)? getTodate: product.devTimeStart}}</p>
                         <p v-if="product.maintainStart != null">維護時間：{{ (product.maintainStart == null)? getTodate: product.maintainStart}} - {{ (product.maintainEnd == null)? getTodate: product.maintainEnd}}</p>
                     </div>
                     <div class="desc">
