@@ -10,8 +10,15 @@
     line-height: 2em;
     padding-left: 0.5em;
 }
-li{
-    display: block;
+ul{
+    margin: 0.5em 0;
+    li{
+        display: block;
+        line-height: 180%;
+        &:before{
+            content: '・'; 
+        }
+    }
 }
 
 a{
@@ -45,19 +52,18 @@ a{
 }
 
 .content{
+    margin: 1em 0 .5em 0;
     h5{
-        font-size: 0.75em;
-        margin: 1em 0 .5em 0;
         color:$grey;
+        margin-bottom: 0.5em;
     }
     h6{
         text-indent: 2em;
-        font-size: 0.6em;
         margin-top: 0.5em;
+        font-weight: normal;
     }
     p{
         text-indent: 2em;
-        font-size: 0.8em;
         line-height: 180%;
     }
 }
@@ -90,9 +96,19 @@ a{
         width: auto;
         height: 1.5em;
         line-height: 1.5em;
+        margin-bottom: 0.5em;
         padding: 0.25em 0.5em;
     }
-
+    h5{
+        font-size: 0.75em;
+    }
+    h6,li{
+        font-size: 0.75em;
+        margin-top: 0.5em;
+    }
+    p{
+        font-size: 0.8em;
+    }
 }
 @media all and (min-width: $phone-media) and (max-width: $pads-media) {
     .aboutPage{
@@ -128,12 +144,21 @@ a{
             display: none;
         }
     }
-
+    h5{
+        font-size: 0.75em;
+    }
+    h6,li{
+        font-size: 0.7em;
+        margin-top: 0.5em;
+    }
+    p{
+        font-size: 0.8em;
+    }
 }
 @media all and (max-width: $phones-media) {
     .aboutPage{
         width: 94vw;
-        padding: 3em 1em 1em 1em;
+        padding: 3em 1em 9em 1em;
         .pageTitle{
             height: 1.5em;
             line-height: 1.5em;
@@ -143,19 +168,24 @@ a{
             box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
         }
         .personalImg{
-            width: 8em;
-            height: 6em;
-            bottom: 1em;
-            left: 1em;
+            width: 9em;
+            height: 6.5em;
+            bottom: 1.5em;
+            left: 1.5em;
             box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
             background-image: url(/src/img/personal.jpg);
         }
         .content{
             &.education{
-                font-size: 0.9em;
             }
             &.contact{
-                margin-top: 4em;
+                width: 3em;
+                position: absolute;
+                right: 0.25em;
+                bottom: 0;
+                a{
+                    margin-bottom: 0.5em;
+                }
             }
         }
     }
@@ -168,6 +198,15 @@ a{
         span{
             display: none;
         }
+    }
+    h5{
+        font-size: 0.75em;
+    }
+    h6,li{
+        font-size: 0.65em;
+    }
+    p{
+        font-size: 0.725em;
     }
 }
 

@@ -13,7 +13,7 @@
         <div class="content education">
             <h5>Education</h5>
             <h6>國立新竹教育大學藝術教育與創作碩士班</h6>
-            <p>2011/9 - 2014/8</p>
+            <h6>2011/09 - 2014/08</h6>
         </div>
         <div class="content rightAlign contact">
             <a href="mailto:ingird7613@gmail.com" target="_blank">
@@ -25,8 +25,8 @@
                 <span>0911-220-154</span>
             </a>
             <a href="https://github.com/ingridkao" target="_blank">
-                <font-awesome-icon icon="phone" />
-                <span>GitHub</span>
+                Git
+                <span>Hub</span>
             </a>
         </div>
     </div>
@@ -35,10 +35,9 @@
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 export default {
     name: 'about',
-    data() {},
     components: {
         FontAwesomeIcon
-    },
+    }
 }
 </script>
 <style lang="scss" scoped>

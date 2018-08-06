@@ -6,23 +6,14 @@
     box-shadow: none;
     color:$black;
     .content{
-        margin: 2em auto;
         position: relative;
         >div{
             box-sizing: border-box;
             box-shadow: .5em .5em rgba(#ddd, 0.4);
             border-radius: 3px;
             &.title{
-                position: absolute;
-                width: 10em;
-                top: -1em;
-                left: -1em;
-                z-index: 1;
-                padding: 0.5em 1em;
-                background-color:rgba($white,0.95);
                 h5{
                     color:lighten($blue, 10);
-                    margin-bottom: 0.5em;
                 }
                 h6{
                     font-size: 0.7em;
@@ -33,11 +24,6 @@
             }
             &.info{
                 position: relative;
-                width: calc(100% - 7em);
-                padding: 2em 3em 3em 3em;
-                margin-left: 8em;         
-                margin-bottom: 5em;
-                background-color:$white;
                 h6{
                     font-size: 0.75em;
                     margin: 0.5em 0;
@@ -45,30 +31,18 @@
                 p{
                     text-indent: 2em;
                     margin-bottom: 0.5em;
-                    max-width: 36em;
-                    width: calc(100% - 10em);
                 }
                 .btnzone{
-                    position: absolute;
-                    bottom: 1.5em;
-                    right: 1.5em;
-                    width: 8em;
                     text-align: right;
                     >*{
                         width: 90%;
                         margin: 0.5em 0;
                     }
-                    button{
-                        @extend %btnNoshadow;
-                        background: $grey;
-                        color: $white;
-                        &:hover{
-                            background: darken($grey, 10);
-                        }
-                    }
                     a{
                         border-radius: 3px;
                         opacity: 0.6;
+                        width: auto;
+                        padding: 0.25em 1em;
                         &:hover{
                             opacity: 0.9;
                             background-color: rgba($blue, 0.1);
@@ -102,10 +76,20 @@
     }
 }
 
-
-
-li{
-    display: block;
+ul{
+    margin: 0.25em 0;
+    li{
+        position: relative;
+        display: block;
+        margin-left: 1em;
+        font-size: 0.7em;
+        line-height: 160%;
+        &:before{
+            content: '・';
+            position: absolute;
+            left: -1em;
+        }
+    }
 }
 
 a{
@@ -139,108 +123,54 @@ a{
 }
 
 @media all and (min-width: $pad-media) {
-    .aboutPage{
-        width: calc(100vw - 18em);
-        margin-top: 5vh;
-        padding: 1.5em 2em 1em 17em;
-        .pageTitle{
-            top: 1em;
-            left: -2em;
+    .content{
+        margin: 2em auto;
+        .title{
+            position: absolute;
             z-index: 1;
-            background-color: $black;
-            box-shadow: $boxPadding $boxPadding rgba(221, 221, 221, .5);
+            width: 10em;
+            top: -1em;
+            left: -1em;
+            padding: 0.5em 1em;
+            background-color:rgba($white,0.95);
+            h5{
+                margin-bottom: 0.5em;
+            }
         }
-        .personalImg{
-            width: 15em;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-        .content{
-            padding:1em 0;
+        .info{
+            width: calc(100% - 7em);
+            padding: 2em 3em 3em 3em;
+            margin-left: 8em;         
+            margin-bottom: 5em;
+            background-color:$white;
+            >p{
+                width: calc(100% - 10em);
+                max-width: 36em;
+            }
+            .btnzone{
+                position: absolute;
+                bottom: 1.5em;
+                right: 1.5em;
+                width: 8em;
+            }
         }
     }
-    a{
-        width: auto;
-        height: 1.5em;
-        line-height: 1.5em;
-        padding: 0.25em 0.5em;
-    }
-
 }
-@media all and (min-width: phone-media) and (max-width: $pads-media) {
-    .aboutPage{
-        padding: 5em 2em 1em 2em;
-        .pageTitle{
-            top: 1.5em;
-            left: -2em;
-            background-color: $grey;
-            box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
+@media all and (max-width: $pads-media) {
+    .content{
+        margin: 0em auto 1em auto;
+        .title{
+            width: 8em;
+            margin-bottom: 0.75em;
+            padding: 0.25em 0.5em;
+            background-color:$white;
         }
-        .personalImg{
-            width: 30vw;
-            height: 30vw;
-            top: 0.5em;
-            right: -2em;
-            box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
-        }
-        .content{
-            &.about{
-                width: calc(100% - 30vw + 3em);
-            }
-
-        }
-    }
-    a{
-        width: 2.5em;
-        height: 2.5em;
-        line-height: 2.5em;
-        margin-right: 0.5em;
-        border-radius: 50%;
-        span{
-            display: none;
-        }
-    }
-
-}
-@media all and (max-width: $phones-media) {
-    .aboutPage{
-        width: 94vw;
-        padding: 3em 1em 1em 1em;
-        .pageTitle{
-            height: 1.5em;
-            line-height: 1.5em;
-            top: 1em;
-            left: 1em;
-            background-color: $grey;
-            box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
-        }
-        .personalImg{
-            width: 6em;
-            height: 6em;
-            bottom: 1em;
-            left: 1em;
-            box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
-        }
-        .content{
-            &.education{
-                font-size: 0.9em;
-            }
-            &.contact{
-                margin-top: 4em;
+        .info{
+            background-color:rgba($white,0.85);
+            padding: 0.5em 1em;
+            >p{
+                display: none;
             }
         }
     }
-    a{
-        width: 2.5em;
-        height: 2.5em;
-        line-height: 2.5em;
-        margin-right: 0.5em;
-        border-radius: 50%;
-        span{
-            display: none;
-        }
-    }
-
 }

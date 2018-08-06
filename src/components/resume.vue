@@ -28,7 +28,7 @@
                     <li>使用Git進行版本控制</li>
                 </ul>
                 <div class="btnzone">
-                    <button class="">Project +</button>
+                    <router-link to="/project">Project +</router-link>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                     <li>使用GitHub Page建立靜態網頁</li>
                 </ul>
                 <div class="btnzone">
-                    <button class="">Project +</button>
+                    <router-link to="/project">Project +</router-link>
                 </div>
             </div>
         </div>
@@ -92,11 +92,11 @@
                 </p>
                  <h6>壁畫經驗</h6>
                 <p>
-                    就學期間除了教學也經常洽談壁畫工作，範圍從小家庭牆面到幼稚園整體視覺規劃，或是大型公寓停車場視覺動線，從空無一物的牆面開始規劃工期到施工完畢，內容包含與客戶洽談需求、材料選用及施工方法、定稿報價、繪製牆面。由於必須避免工程延宕以及工法無法隨意重來以免浪費成本，因此訓練出快速應對突如其來的問題以及臨場決策判斷能力。
+                    就學期間除了教學額外有壁畫工作，包括小家庭牆面到幼稚園整體視覺規劃，或是大型公寓停車場視覺動線，從空無一物的牆面開始規劃工期到施工完畢，內容包含與客戶洽談需求、材料選用及施工方法、定稿報價、繪製牆面。由於必須避免工程延宕以及工法無法隨意重來以免浪費成本，因此訓練出快速應對突如其來的問題以及臨場決策判斷能力。
                 </p>
-                <!-- <div class="btnzone">
-                    <a href="https://drive.google.com/file/d/0B4343jp4xt4AZTJfQ0RTSHY3VGs/view?usp=sharing">PDF</a>
-                </div> -->
+                <div class="btnzone">
+                    <a href="https://drive.google.com/file/d/1GXIj9acbdzhXxaAfng612m4kl7MgfPCg/view?usp=sharing" target="_blank">portfolio</a>
+                </div>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
         <div class="content" v-for="project in projectList">
             <div class="title">{{ project.mainTitle }}</div>
             <div class="item" v-for="product in project.list">
-                <div>
+                <div class="infoBox">
                     <div class="info">
                         <h6>{{ product.title}}</h6>
                         <p v-if="product.subtitle != null">{{ product.subtitle}}</p>
@@ -19,9 +19,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="imageBox">
+                <div class="imageBox" v-if="product.image != null">
                     <div :style="'background-image:' + product.image"></div>
-                    <a :href="product.webURL">Go</a>
+                    <a v-if="product.webURL != null" :href="product.webURL" target="_blank">Go to {{ product.title }}</a>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ export default {
                             'desc':[
                                 {
                                     'descTitle':'協作開發',
-                                    'content':['利用舊有程式快速建置網頁','Larevel協作']
+                                    'content':['利用舊有程式快速建置網頁','Larevel協作']
                                 },
                                 {
                                     'descTitle':'參與討論',
@@ -98,7 +98,7 @@ export default {
                             'webURL':'https://210.200.142.111:8010/parking_system_v2'
                         },
                         {
-                            'title':'ORION',
+                            'title':'Orion',
                             'subtitle':'即時定位與裝置管理系統',
                             'devTimeStart': '2016/05',
                             'devTimeEnd': '2017/06',
@@ -132,7 +132,7 @@ export default {
                             'desc':[
                                 {
                                     'descTitle':'協作開發',
-                                    'content':['利用舊有程式快速建置網頁','ThinkPHP API撰寫','以Sass撰寫']
+                                    'content':['利用舊有程式快速建置網頁','ThinkPHP API撰寫','以Sass撰寫介面排版']
                                 },
                                 {
                                     'descTitle':'參與討論',
@@ -149,7 +149,7 @@ export default {
                     'mainTitle':'接案專案',
                     'list':[
                         {
-                            'title':'新北市登山路線介紹',
+                            'title':'新北市古道地圖',
                             'subtitle':null,
                             'devTimeStart': '2016/05',
                             'devTimeEnd': null,
@@ -183,7 +183,7 @@ export default {
                                 }
                             ],
                             'image':null,
-                            'webURL':'http://www.ingridkao.com/resume'
+                            'webURL':null
                         }
                     ]
                 }

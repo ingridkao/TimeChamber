@@ -34,7 +34,7 @@ export default new VueRouter({
         component: Project
     },{
         path: '/dailyUI',
-        redirect: '/dailyUI/week2',
+        redirect: '/dailyUI/week1',
         component: Ui100,
         children: [{
             path: '/dailyUI/week1',
