@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="imageBox" v-if="product.image != null">
-                    <div :style="'background-image:' + product.image"></div>
+                    <div :class="product.image"></div>
                     <a v-if="product.webURL != null" :href="product.webURL" target="_blank">Go to {{ product.title }}</a>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default {
                                     'content':['以Vue2進行框架建構，使用Vue-router、Vuex等','以Webpack環境架構化開發','與UI/UX設計師合作，並透過iView規劃介面','以Sass撰寫介面排版','使用axio、lodash進行資料處理','使用momentJS處理時間格式','RESTful API格式定義','登入與權限機制討論','使用docker部署web App']
                                 }
                             ],
-                            'image': 'url(/src/img/hu.jpg)',
+                            'image': 'hu',
                             'webURL':'http://iot3.thingconnector.net/'
                         },
                         {
@@ -74,7 +74,7 @@ export default {
                                     'content':['資料庫設計']
                                 }
                             ],
-                            'image': 'url(/src/img/uthings.png)',
+                            'image': 'uthings',
                             'webURL':'http://iot3.thingconnector.net/'
                         },
                         {
@@ -94,7 +94,7 @@ export default {
                                     'content':['系統與介面邏輯設計','資料庫設計','ESTful API格式設計']
                                 }
                             ],
-                            'image':'url(/src/img/parking.png)',
+                            'image':'parking',
                             'webURL':'https://210.200.142.111:8010/parking_system_v2'
                         },
                         {
@@ -119,7 +119,7 @@ export default {
                                 }
 
                             ],
-                            'image':'url(/src/img/orion.png)',
+                            'image':'orion',
                             'webURL':''
                         },
                         {
@@ -140,7 +140,7 @@ export default {
                                 }
 
                             ],
-                            'image':'url(/src/img/patrol.jpg)',
+                            'image':'patrol',
                             'webURL':'https://210.200.142.110/patrol/'
                         }
                     ]
@@ -161,7 +161,7 @@ export default {
                                     'content':['使用Vue2進行框架建構','Webpack環境架構化開發','與設計師合作，SCSS客製化介面','使用Leaflet進行地圖路線顯示']
                                 }
                             ],
-                            'image':'url(/src/img/path.png)',
+                            'image':'path',
                             'webURL':'http://www.ingridkao.com/newtaipeipath'
                         }
                     ]

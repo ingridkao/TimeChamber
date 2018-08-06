@@ -69,6 +69,24 @@ a{
             >div{
                 background-repeat: no-repeat;
                 background-size: contain;
+                &.hu{
+                    background-image: url(../../assets/img/hu.jpg);
+                }
+                &.uthings{
+                    background-image: url(../../assets/img/uthings.png);
+                }
+                &.parking{
+                    background-image: url(../../assets/img/parking.png);
+                }
+                &.orion{
+                    background-image: url(../../assets/img/orion.png);
+                }
+                &.patrol{
+                    background-image: url(../../assets/img/patrol.jpg);
+                }
+                &.path{
+                    background-image: url(../../assets/img/path.png);
+                }
             }
         }
     }

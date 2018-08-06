@@ -86,7 +86,7 @@ a{
             top: 0;
             left: 0;
             z-index: 0;
-            background-image: url(/src/img/personal3.jpg);
+            background-image: url(../../assets/img/personal3.jpg);
         }
         .content{
             padding:1em 0;
@@ -125,7 +125,7 @@ a{
             top: 0.5em;
             right: -2em;
             box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
-            background-image: url(/src/img/personal2.jpg);
+            background-image: url(../../assets/img/personal2.jpg);
         }
         .content{
             &.about{
@@ -173,7 +173,7 @@ a{
             bottom: 1.5em;
             left: 1.5em;
             box-shadow: $boxPadding/2 $boxPadding/2 rgba(221, 221, 221, .1);
-            background-image: url(/src/img/personal.jpg);
+            background-image: url(../../assets/img/personal.jpg);
         }
         .content{
             &.education{
