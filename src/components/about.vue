@@ -16,9 +16,9 @@
             <h6>2011/09 - 2014/08</h6>
         </div>
         <div class="content rightAlign contact">
-            <a href="mailto:ingird7613@gmail.com" target="_blank">
+            <a href="mailto:ingrid7613@gmail.com" target="_blank">
                 <font-awesome-icon icon="envelope" />
-                <span>ingird7613@gmail.com</span>
+                <span>ingrid7613@gmail.com</span>
             </a>
             <a href="tel:0911-220-154">
                 <font-awesome-icon icon="phone" />
